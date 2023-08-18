@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'login_page.dart'; // Import halaman login
+import 'package:url_launcher/url_launcher.dart';
+import 'dart:io';
 
 void main() => runApp(const StepperExampleApp());
 
@@ -26,8 +28,37 @@ class StepperExample extends StatefulWidget {
   State<StepperExample> createState() => _StepperExampleState();
 }
 
+// final Uri _url = Uri.parse('https://wa.me/6282331050979');
+// Future<void> _launchUrl() async {
+//   if (!await canLaunchUrl(_url)) {
+//     throw Exception('Could not launch $_url');
+//   }
+//   await launchUrl(_url);
+// }
+
 class _StepperExampleState extends State<StepperExample> {
   int _index = 0;
+
+  void launchWhatsApp({
+    required String phone,
+    required String message,
+  }) async {
+    String url() {
+      if (Platform.isAndroid) {
+        // add the [https]
+        return "https://wa.me/$phone/?text=${Uri.parse(message)}"; // new line
+      } else {
+        // add the [https]
+        return "https://api.whatsapp.com/send?phone=$phone=${Uri.parse(message)}"; // new line
+      }
+    }
+
+    if (await canLaunch(url())) {
+      await launch(url());
+    } else {
+      throw 'Could not launch ${url()}';
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -38,6 +69,12 @@ class _StepperExampleState extends State<StepperExample> {
           setState(() {
             _index -= 1;
           });
+        } else {
+          Navigator.pushAndRemoveUntil(
+            context,
+            MaterialPageRoute(builder: (context) => LoginPage()),
+            ModalRoute.withName('/'),
+          );
         }
       },
       onStepContinue: () {
@@ -47,11 +84,7 @@ class _StepperExampleState extends State<StepperExample> {
           });
         } else {
           // Redirect to LoginPage after last step
-          Navigator.pushAndRemoveUntil(
-            context,
-            MaterialPageRoute(builder: (context) => LoginPage()),
-            ModalRoute.withName('/'),
-          );
+          launchWhatsApp(phone: '+6282331050979', message: 'Hello');
         }
       },
       onStepTapped: (int index) {

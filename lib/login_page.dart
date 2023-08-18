@@ -59,38 +59,119 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Login'),
-      ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            TextFormField(
-              controller: _usernameController,
-              decoration: InputDecoration(labelText: 'Username'),
+      body: Stack(
+        fit: StackFit.expand,
+        children: [
+          Image.asset(
+            'assets/images/BG.png', // Ganti dengan path gambar BG.PNG
+            fit: BoxFit.cover,
+          ),
+          Center(
+            child: Padding(
+              padding: EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  // Gambar RUMAH.PNG
+                  Center(
+                    child: Image.asset(
+                      'assets/images/RUMAH.png',
+                      height: 100,
+                      width: 100,
+                    ),
+                  ),
+                  SizedBox(height: 16.0),
+                  // Text "Selamat Datang"
+                  Text(
+                    'Selamat Datang',
+                    style: TextStyle(
+                      color: Color(0xFF000000),
+                      fontFamily: 'Inter',
+                      fontSize: 14,
+                      fontWeight: FontWeight.w500,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 8.0),
+                  // Text "HALO RUMAH"
+                  Text(
+                    'HALO RUMAH',
+                    style: TextStyle(
+                      color: Color(0xFF000000),
+                      fontFamily: 'Inter',
+                      fontSize: 24,
+                      fontWeight: FontWeight.w700,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 42.0),
+                  TextFormField(
+                    controller: _usernameController,
+                    cursorColor: Color(0xFF000000),
+                    decoration: InputDecoration(
+                      labelText: "Enter Username",
+                      fillColor: Colors.white,
+                      labelStyle: TextStyle(
+                        color: Color(0xFF000000),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 24.0),
+                  TextFormField(
+                    controller: _passwordController,
+                    obscureText: true,
+                    cursorColor: Color(0xFF000000),
+                    decoration: InputDecoration(
+                      labelText: "Password",
+                      fillColor: Colors.white,
+                      labelStyle: TextStyle(
+                        color: Color(0xFF000000),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(25.0),
+                      ),
+                    ),
+                  ),
+                  SizedBox(height: 24.0),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      primary: Colors.red,
+                      onPrimary: Colors.white,
+                      shadowColor: Colors.red,
+                      elevation: 3,
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0)),
+                      minimumSize: Size(289, 42),
+                    ),
+                    onPressed: _login,
+                    child: Text('Login'),
+                  ),
+                  SizedBox(height: 8.0),
+                  TextButton(
+                    onPressed: () {
+                      Navigator.pushNamed(context, '/stepper');
+                    },
+                    style: TextButton.styleFrom(
+                      foregroundColor: Color(0xFF000000),
+                      textStyle: TextStyle(
+                        fontWeight: FontWeight.w700,
+                        fontSize: 14,
+                        fontFamily: 'Inter',
+                        fontStyle: FontStyle.italic,
+                        decoration: TextDecoration.underline,
+                      ),
+                    ),
+                    child: Text('Tap Here to Get Account Access !!'),
+                  ),
+                ],
+              ),
             ),
-            SizedBox(height: 8.0),
-            TextFormField(
-              controller: _passwordController,
-              obscureText: true,
-              decoration: InputDecoration(labelText: 'Password'),
-            ),
-            SizedBox(height: 16.0),
-            ElevatedButton(
-              onPressed: _login,
-              child: Text('Login'),
-            ),
-            SizedBox(height: 8.0),
-            TextButton(
-              onPressed: () {
-                Navigator.pushNamed(context, '/stepper');
-              },
-              child: Text('Get account'),
-            ),
-          ],
-        ),
+          ),
+        ],
       ),
     );
   }

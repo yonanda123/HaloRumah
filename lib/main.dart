@@ -42,13 +42,11 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: '/login',
       home: _isLoggedIn
           ? (_loggedInUserRole == 1
               ? AdminDashboardPage(username: _loggedInUsername)
               : UserDashboardPage(username: _loggedInUsername))
           : LoginPage(),
-          
       routes: {
         '/stepper': (context) => StepperExampleApp(),
         '/login': (context) => LoginPage(),
