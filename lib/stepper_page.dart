@@ -28,14 +28,6 @@ class StepperExample extends StatefulWidget {
   State<StepperExample> createState() => _StepperExampleState();
 }
 
-// final Uri _url = Uri.parse('https://wa.me/6282331050979');
-// Future<void> _launchUrl() async {
-//   if (!await canLaunchUrl(_url)) {
-//     throw Exception('Could not launch $_url');
-//   }
-//   await launchUrl(_url);
-// }
-
 class _StepperExampleState extends State<StepperExample> {
   int _index = 0;
 
