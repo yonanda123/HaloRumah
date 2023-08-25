@@ -36,6 +36,8 @@ class _MyAppState extends State<MyApp> {
       _loggedInUsername = loggedInUsername;
       _loggedInUserRole = loggedInUserRole; // Mengatur nilai role
     });
+
+    
   }
 
   @override
