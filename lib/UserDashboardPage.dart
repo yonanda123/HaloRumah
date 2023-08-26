@@ -90,6 +90,8 @@ class _UserDashboardPageState extends State<UserDashboardPage> {
         TextEditingController(text: user['name']);
     final TextEditingController addressController =
         TextEditingController(text: user['address']);
+    final TextEditingController phoneController =
+        TextEditingController(text: user['phone']);
     final TextEditingController usernameController =
         TextEditingController(text: user['username']);
     final TextEditingController passwordController =
@@ -138,6 +140,10 @@ class _UserDashboardPageState extends State<UserDashboardPage> {
                   decoration: InputDecoration(labelText: 'Address'),
                 ),
                 TextField(
+                  controller: phoneController,
+                  decoration: InputDecoration(labelText: 'Phone'),
+                ),
+                TextField(
                   controller: usernameController,
                   decoration: InputDecoration(labelText: 'Username'),
                 ),
@@ -164,6 +170,7 @@ class _UserDashboardPageState extends State<UserDashboardPage> {
                   'id': user['id'], // Pastikan ini adalah ID yang benar
                   'name': nameController.text,
                   'address': addressController.text,
+                  'phone': phoneController.text,
                   'username': usernameController.text,
                   'password': passwordController.text,
                   'image': imageFile != null ? imageFile!.path : user['image'],
@@ -854,40 +861,220 @@ class _UserDashboardPageState extends State<UserDashboardPage> {
                 ),
               ); // Gantilah YourFirstWidget() dengan widget yang sesuai.
             } else if (_selectedIndex == 1) {
-              return ElevatedButton(
-                onPressed: () {
-                  _logout(context);
-                },
-                style: ElevatedButton.styleFrom(
-                  primary: Colors.red, // Warna latar belakang tombol
-                  onPrimary: Colors.white, // Warna teks tombol
-                ),
-                child: Text('Logout'),
+              return Container(
+                color: Colors.red,
               );
             } else {
-              return Column(
-                children: [
-                  ElevatedButton(
-                    child: Text(
-                        'Edit ${loggedInUser['id']}, ${loggedInUser['name']} , ${loggedInUser['address']} , ${loggedInUser['username']} , ${loggedInUser['password']}, ${loggedInUser}'),
-                    onPressed: () {
-                      _editUsers(loggedInUser);
-                    },
+              return SingleChildScrollView(
+                child: Center(
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.only(top: 48),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 32),
+                            child: Text(
+                              'Profile',
+                              style: TextStyle(
+                                fontFamily: 'Inter',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                height: 19 / 16,
+                                letterSpacing: 0.1,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: double.infinity, // Lebar sesuaikan dengan layar
+                        height: 150.0, // Tinggi card
+                        margin: EdgeInsets.only(
+                            right: 32.0, left: 32, bottom: 32, top: 16),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius:
+                              BorderRadius.circular(16.0), // Radius sudut card
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: Offset(0, 3), // Offset bayangan
+                            ),
+                          ],
+                        ),
+                        child: Row(
+                          children: [
+                            Padding(
+                              padding: const EdgeInsets.only(
+                                  top: 8, bottom: 8, left: 8),
+                              child: Container(
+                                width: 100.0, // Lebar leading foto
+                                child: CircleAvatar(
+                                  radius: 50.0, // Radius avatar
+                                  backgroundImage: FileImage(File(loggedInUser[
+                                      'image'])), // Ganti dengan gambar profil Anda
+                                ),
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.all(8.0),
+                                    child: Text(
+                                      '${loggedInUser['name']}', // Ganti dengan nama Anda
+                                      style: TextStyle(
+                                        fontFamily: 'Inter',
+                                        fontSize: 16,
+                                        fontWeight: FontWeight.w700,
+                                        height: 19 / 16,
+                                        letterSpacing: 0.1,
+                                      ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                        top: 8, right: 8, left: 8, bottom: 8),
+                                    child: Row(
+                                      children: [
+                                        Icon(
+                                          Icons.account_circle,
+                                          color: Colors
+                                              .black, // Ganti dengan warna ikon yang Anda inginkan
+                                        ),
+                                        SizedBox(
+                                            width:
+                                                8), // Memberikan jarak antara ikon dan teks
+                                        Text(
+                                          '${loggedInUser['username']}', // Ganti dengan username Anda
+                                          style: TextStyle(
+                                            fontFamily: 'Inter',
+                                            fontSize: 14,
+                                            height: 19 / 16,
+                                            letterSpacing: 0.1,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.only(
+                                        left: 8, right: 8, bottom: 8),
+                                    child: Row(
+                                      children: [
+                                        Icon(Icons.phone, color: Colors.black),
+                                        SizedBox(
+                                          width: 8,
+                                        ),
+                                        Text(
+                                          '${loggedInUser['phone']}', // Ganti dengan nomor telepon Anda
+                                          style: TextStyle(
+                                            fontFamily: 'Inter',
+                                            fontSize: 14,
+                                            height: 19 / 16,
+                                            letterSpacing: 0.1,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.only(
+                                  left: 8, right: 8, bottom: 8, top: 8),
+                              child: IconButton(
+                                icon: Icon(Icons.edit),
+                                onPressed: () {
+                                  _editUsers(loggedInUser);
+                                },
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(
+                          bottom: 32,
+                        ),
+                        child: Align(
+                          alignment: Alignment.centerLeft,
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 32),
+                            child: Text(
+                              'Preferensi',
+                              style: TextStyle(
+                                fontFamily: 'Inter',
+                                fontSize: 16,
+                                fontWeight: FontWeight.w700,
+                                height: 19 / 16,
+                                letterSpacing: 0.1,
+                              ),
+                            ),
+                          ),
+                        ),
+                      ),
+                      Container(
+                        width: double.infinity, // Lebar sesuaikan dengan layar
+                        height: 175.0, // Tinggi card
+                        margin: EdgeInsets.only(right: 32.0, left: 32),
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius:
+                              BorderRadius.circular(16.0), // Radius sudut card
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey.withOpacity(0.5),
+                              spreadRadius: 5,
+                              blurRadius: 7,
+                              offset: Offset(0, 3), // Offset bayangan
+                            ),
+                          ],
+                        ),
+                        child: ListView(
+                          children: [
+                            ListTile(
+                              title: Text('About'),
+                              trailing: Icon(Icons.arrow_forward_ios),
+                              leading: Icon(
+                                Icons.perm_device_information_sharp,
+                                color: Colors.black,
+                              ),
+                              onTap: () {
+                                // Aksi saat list "About" ditekan
+                                // Anda dapat menambahkan logika sesuai kebutuhan
+                              },
+                            ),
+                            const Divider(
+                              thickness: 0.1,
+                              indent: 15,
+                              endIndent: 15,
+                              color: Colors.black,
+                            ),
+                            ListTile(
+                              title: Text('Logout'),
+                              trailing: Icon(Icons.arrow_forward_ios),
+                              leading: Icon(
+                                Icons.logout,
+                                color: Colors.black,
+                              ),
+                              onTap: () {
+                                _logout(context);
+                              },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
                   ),
-                  // ListView.builder(
-                  //   itemCount: users.length,
-                  //   itemBuilder: (BuildContext context, int index) {
-                  //     final user = users[index];
-                  //     return ListTile(
-                  //       // leading: Image.file(File(user['image'])),
-                  //       title: Text(user['username']),
-                  //       onTap: () {
-                  //         _editUsers(user);
-                  //       },
-                  //     );
-                  //   },
-                  // )
-                ],
+                ),
               );
             }
           }(),

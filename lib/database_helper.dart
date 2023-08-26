@@ -35,7 +35,8 @@ class DatabaseHelper {
       role INTEGER,
       name TEXT,
       address TEXT,
-      image TEXT
+      image TEXT,
+      phone TEXT
     )
   ''');
 
@@ -46,7 +47,8 @@ class DatabaseHelper {
         'role': 1,
         'name': 'admin',
         'address': 'admin',
-        'image': 'default.png'
+        'image': 'default.png',
+        'phone' : '008233334444'
       },
       {
         'username': 'halorumah01',
@@ -54,7 +56,8 @@ class DatabaseHelper {
         'role': 2,
         'name': 'UNKNOWN',
         'address': 'UNKNOWN',
-        'image': 'default.png'
+        'image': 'default.png',
+        'phone' : '082144445555'
       },
       // {'username': 'halorumah02', 'password': 'b48fddc5eae', 'role': 2},
       // {'username': 'halorumah03', 'password': '9d2d76e951e', 'role': 2},
