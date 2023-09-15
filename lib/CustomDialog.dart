@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'dart:io';
 
 class CustomDialog extends StatelessWidget {
   final String title;
@@ -31,6 +33,62 @@ class CustomDialog extends StatelessWidget {
     required this.resultRABKitchen,
     required this.resultRABBathRoom,
   });
+
+  // void launchWhatsApp({
+  //   required String phone,
+  //   required String message,
+  // }) async {
+  //   String url() {
+  //     if (Platform.isAndroid) {
+  //       // add the [https]
+  //       return "https://wa.me/$phone/?text=${Uri.parse(message)}"; // new line
+  //     } else {
+  //       // add the [https]
+  //       return "https://api.whatsapp.com/send?phone=$phone=${Uri.parse(message)}"; // new line
+  //     }
+  //   }
+
+  //   if (await canLaunch(url())) {
+  //     await launch(url());
+  //   } else {
+  //     throw 'Could not launch ${url()}';
+  //   }
+  // }
+
+  void sendLongWhatsAppMessage({
+    required String phone,
+    required String message,
+  }) async {
+    final maxLength = 4096; // Panjang maksimum pesan yang dapat dikirim
+
+    while (message.length > 0) {
+      final part = message.substring(0, maxLength);
+      message = message.substring(maxLength);
+
+      final success = await launchWhatsApp(
+        phone: phone,
+        message: part,
+      );
+
+      if (!success) {
+        throw 'Failed to send WhatsApp message';
+      }
+    }
+  }
+
+  Future<bool> launchWhatsApp({
+    required String phone,
+    required String message,
+  }) async {
+    final url = Uri.encodeFull("https://wa.me/$phone/?text=$message");
+
+    if (await canLaunch(url)) {
+      await launch(url);
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -141,7 +199,7 @@ class CustomDialog extends StatelessWidget {
                   resultRABLivinRoom * 75731499.04,
                 ),
                 buildText(
-                  'Kamar Utama',
+                  'Kamar',
                   resultRABBedRoom * 76162212.76,
                 ),
                 buildText(
@@ -169,18 +227,51 @@ class CustomDialog extends StatelessWidget {
                 ),
                 SizedBox(height: 10.0),
                 Text(
-                  '$formattedTotalCost ',
+                  '$formattedTotalCost',
                   style: TextStyle(fontSize: 16.0, fontFamily: 'inter'),
                 ),
                 SizedBox(height: 24.0),
                 Align(
                   alignment: Alignment.bottomRight,
-                  child: TextButton(
-                    onPressed: onPressed,
-                    child: Text(
-                      'OK',
-                      style: TextStyle(fontSize: 18.0),
-                    ),
+                  child: Row(
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.red,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 12),
+                          textStyle: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.w500),
+                        ),
+                        onPressed: () {
+                          launchWhatsApp(
+                              phone: '+6282331050979',
+                              message:
+                                  'Luas m²\n\nRuang Tamu: $resultLivingRoom m²\nKamar : $resultBedRoom\nKamar Utama : $resultMainBedRoom m²\nKamar Mandi : $resultBathRoom m²\nDapur : $resultKitchen m²\nLuas Halaman : $resultLuasBangunan m²\n\n\nRencana Anggaran Biaya\n\nRuang Tamu: Rp. ${resultRABLivinRoom * 75731499.04} \n Kamar : Rp. ${resultRABBedRoom * 76162212.76}\nKamar Utama: Rp. ${resultRABMainBedRoom * 94721113.18}\nKamar Mandi : Rp. ${resultRABBathRoom * 79072268.08}\nDapur : Rp. ${resultRABKitchen * 76920471.98}\n\nTotal Anggaran : $formattedTotalCost');
+                        },
+                        child: Text(
+                          'Tanya Ahli',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      ),
+                      SizedBox(
+                        width: 16,
+                      ),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: Colors.white10,
+                          padding: EdgeInsets.symmetric(
+                              horizontal: 12, vertical: 12),
+                          textStyle: TextStyle(
+                              fontSize: 24, fontWeight: FontWeight.w500),
+                        ),
+                        onPressed: onPressed,
+                        child: Text(
+                          'OK',
+                          style: TextStyle(fontSize: 18.0),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],

@@ -16,6 +16,18 @@ class _ProcessState extends State<Process> {
   int _currentHorizontalIntValueBathRoom = 0;
   int _currentHorizontalIntValueKitchen = 0;
   int _currentHorizontalIntValueMainBedRoom = 0;
+  
+
+  // final double _currentHorizontalDoubleValueLivingRoom =
+  //     _currentHorizontalIntValueLivingRoom.toDouble();
+  // double _currentHorizontalDoubleValueBedRoom =
+  //     _currentHorizontalIntValueBedRoom.toDouble();
+  // double _currentHorizontalDoubleValueBathRoom =
+  //     _currentHorizontalIntValueBathRoom.toDouble();
+  // double _currentHorizontalDoubleValueKitchen =
+  //     _currentHorizontalIntValueKitchen.toDouble();
+  // double _currentHorizontalDoubleValueMainBedRoom =
+  //     _currentHorizontalIntValueMainBedRoom.toDouble();
 
   double _luasBangunan = 0.0;
   double panjangBangunan = 0.0;
@@ -355,7 +367,7 @@ class _ProcessState extends State<Process> {
                                       icon: Icon(Icons.add),
                                       onPressed: () => setState(() {
                                         if (_currentHorizontalIntValueLivingRoom <
-                                                5 &&
+                                                2 &&
                                             _luasBangunan >= 9) {
                                           final newValue =
                                               _currentHorizontalIntValueLivingRoom +
@@ -713,7 +725,7 @@ class _ProcessState extends State<Process> {
                                 ),
                                 SizedBox(width: 24),
                                 Text(
-                                  'Kamar Tidur',
+                                  'Kamar Mandi',
                                   style: TextStyle(fontSize: 18),
                                 ),
                               ],
@@ -745,7 +757,7 @@ class _ProcessState extends State<Process> {
                                       icon: Icon(Icons.add),
                                       onPressed: () => setState(() {
                                         if (_currentHorizontalIntValueBathRoom <
-                                                5 &&
+                                                3 &&
                                             _luasBangunan >= 2.25) {
                                           final newValue =
                                               _currentHorizontalIntValueBathRoom +
@@ -874,7 +886,7 @@ class _ProcessState extends State<Process> {
                                       icon: Icon(Icons.add),
                                       onPressed: () => setState(() {
                                         if (_currentHorizontalIntValueKitchen <
-                                                5 &&
+                                                2 &&
                                             _luasBangunan >= 9) {
                                           final newValue =
                                               _currentHorizontalIntValueKitchen +
