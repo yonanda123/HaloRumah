@@ -5,6 +5,7 @@ import 'package:restart_app/restart_app.dart';
 import 'package:halo_rumah_flutter/Menu/Process.dart';
 import 'package:halo_rumah_flutter/Menu/HomePage.dart';
 import 'package:halo_rumah_flutter/Menu/Profile.dart';
+import 'package:halo_rumah_flutter/Menu/SearchPage.dart';
 
 class UserDashboardPage extends StatefulWidget {
   final String username;
@@ -93,6 +94,8 @@ class _UserDashboardPageState extends State<UserDashboardPage> {
                 name: '${loggedInUser['name']}',
               );
             } else if (_selectedIndex == 1) {
+              return SearchPage();
+            } else if (_selectedIndex == 2) {
               return Process();
             } else {
               return Profile(
@@ -118,10 +121,15 @@ class _UserDashboardPageState extends State<UserDashboardPage> {
         ),
         child: BottomNavigationBar(
           backgroundColor: Colors.white,
+          type: BottomNavigationBarType.fixed,
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.add_box_rounded),
