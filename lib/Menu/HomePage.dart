@@ -191,7 +191,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(height: 16),
           Padding(
-            padding: EdgeInsets.only(right: 32, left: 32),
+            padding: EdgeInsets.only(right: 16, left: 32),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -211,7 +211,9 @@ class _HomePageState extends State<HomePage> {
                           height: 50,
                         ),
                         onPressed: () {
-                          setState(() {});
+                          setState(() {
+                            Navigator.pushNamed(context, '/consultation');
+                          });
                         },
                       ),
                     ),
@@ -229,7 +231,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 SizedBox(
-                  width: 10,
+                  width: 16,
                 ),
                 Column(
                   children: [
@@ -253,7 +255,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     SizedBox(height: 8), // Spasi antara Container dan teks
                     Text(
-                      'House Type',
+                      'My House',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontSize: 12,
@@ -289,7 +291,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     SizedBox(height: 8), // Spasi antara Container dan teks
                     Text(
-                      'Desain Detail',
+                      'House Concept',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontSize: 12,
@@ -407,7 +409,7 @@ class _HomePageState extends State<HomePage> {
                     ),
                     SizedBox(height: 8), // Spasi antara Container dan teks
                     Text(
-                      'House Price',
+                      'Unit Price',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontSize: 12,

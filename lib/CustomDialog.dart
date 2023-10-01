@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:io';
 
 class CustomDialog extends StatelessWidget {
   final String title;
@@ -12,7 +11,7 @@ class CustomDialog extends StatelessWidget {
   final double resultBathRoom;
   final double resultKitchen;
   final double resultLuasBangunan;
-  final int resultRABLivinRoom;
+  final int resultRABLivingRoom;
   final int resultRABMainBedRoom;
   final int resultRABBedRoom;
   final int resultRABKitchen;
@@ -27,7 +26,7 @@ class CustomDialog extends StatelessWidget {
     required this.resultBathRoom,
     required this.resultKitchen,
     required this.resultLuasBangunan,
-    required this.resultRABLivinRoom,
+    required this.resultRABLivingRoom,
     required this.resultRABMainBedRoom,
     required this.resultRABBedRoom,
     required this.resultRABKitchen,
@@ -103,7 +102,7 @@ class CustomDialog extends StatelessWidget {
   }
 
   contentBox(context) {
-    final totalCost = (resultRABLivinRoom * 75731499.04) +
+    final totalCost = (resultRABLivingRoom * 75731499.04) +
         (resultRABBedRoom * 76162212.76) +
         (resultRABMainBedRoom * 94721113.18) +
         (resultRABBathRoom * 79072268.08) +
@@ -196,7 +195,7 @@ class CustomDialog extends StatelessWidget {
                 SizedBox(height: 10.0),
                 buildText(
                   'Ruang Tamu',
-                  resultRABLivinRoom * 75731499.04,
+                  resultRABLivingRoom * 75731499.04,
                 ),
                 buildText(
                   'Kamar',
@@ -247,7 +246,7 @@ class CustomDialog extends StatelessWidget {
                           launchWhatsApp(
                               phone: '+6282331050979',
                               message:
-                                  'Luas m²\n\nRuang Tamu: $resultLivingRoom m²\nKamar : $resultBedRoom\nKamar Utama : $resultMainBedRoom m²\nKamar Mandi : $resultBathRoom m²\nDapur : $resultKitchen m²\nLuas Halaman : $resultLuasBangunan m²\n\n\nRencana Anggaran Biaya\n\nRuang Tamu: Rp. ${resultRABLivinRoom * 75731499.04} \n Kamar : Rp. ${resultRABBedRoom * 76162212.76}\nKamar Utama: Rp. ${resultRABMainBedRoom * 94721113.18}\nKamar Mandi : Rp. ${resultRABBathRoom * 79072268.08}\nDapur : Rp. ${resultRABKitchen * 76920471.98}\n\nTotal Anggaran : $formattedTotalCost');
+                                  'Luas m²\n\nRuang Tamu: $resultLivingRoom m²\nKamar : $resultBedRoom\nKamar Utama : $resultMainBedRoom m²\nKamar Mandi : $resultBathRoom m²\nDapur : $resultKitchen m²\nLuas Halaman : $resultLuasBangunan m²\n\n\nRencana Anggaran Biaya\n\nRuang Tamu: Rp. ${resultRABLivingRoom * 75731499.04} \n Kamar : Rp. ${resultRABBedRoom * 76162212.76}\nKamar Utama: Rp. ${resultRABMainBedRoom * 94721113.18}\nKamar Mandi : Rp. ${resultRABBathRoom * 79072268.08}\nDapur : Rp. ${resultRABKitchen * 76920471.98}\n\nTotal Anggaran : $formattedTotalCost');
                         },
                         child: Text(
                           'Tanya Ahli',

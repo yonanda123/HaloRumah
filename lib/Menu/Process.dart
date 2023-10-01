@@ -16,18 +16,6 @@ class _ProcessState extends State<Process> {
   int _currentHorizontalIntValueBathRoom = 0;
   int _currentHorizontalIntValueKitchen = 0;
   int _currentHorizontalIntValueMainBedRoom = 0;
-  
-
-  // final double _currentHorizontalDoubleValueLivingRoom =
-  //     _currentHorizontalIntValueLivingRoom.toDouble();
-  // double _currentHorizontalDoubleValueBedRoom =
-  //     _currentHorizontalIntValueBedRoom.toDouble();
-  // double _currentHorizontalDoubleValueBathRoom =
-  //     _currentHorizontalIntValueBathRoom.toDouble();
-  // double _currentHorizontalDoubleValueKitchen =
-  //     _currentHorizontalIntValueKitchen.toDouble();
-  // double _currentHorizontalDoubleValueMainBedRoom =
-  //     _currentHorizontalIntValueMainBedRoom.toDouble();
 
   double _luasBangunan = 0.0;
   double panjangBangunan = 0.0;
@@ -139,7 +127,7 @@ class _ProcessState extends State<Process> {
                     resultBathRoom: resultBathRoom,
                     resultKitchen: resultKitchen,
                     resultLuasBangunan: _luasBangunan,
-                    resultRABLivinRoom: _currentHorizontalIntValueLivingRoom,
+                    resultRABLivingRoom: _currentHorizontalIntValueLivingRoom,
                     resultRABBedRoom: _currentHorizontalIntValueBedRoom,
                     resultRABMainBedRoom: _currentHorizontalIntValueMainBedRoom,
                     resultRABBathRoom: _currentHorizontalIntValueBathRoom,
