@@ -8,6 +8,7 @@ import 'package:halo_rumah_flutter/stepper_page.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:halo_rumah_flutter/Consultation/ConsultationPage.dart';
+import 'package:halo_rumah_flutter/HouseConcept/HouseConceptPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -89,7 +90,9 @@ class _MyAppState extends State<MyApp> {
         '/user_dashboard': (context) =>
             UserDashboardPage(username: _loggedInUsername),
         '/consultation': (context) =>
-            ConsultationPage(username: _loggedInUsername), // Gantilah 'ConsultationPage' dengan nama halaman yang sesuai
+            ConsultationPage(username: _loggedInUsername),
+        '/HouseConcept': (context) =>
+            HouseConceptPage(username: _loggedInUsername),
       },
     );
   }

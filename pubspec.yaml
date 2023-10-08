@@ -177,6 +177,15 @@ flutter:
     - assets/images/Search_BathRoom_18.jpeg
     - assets/images/Search_BathRoom_19.jpeg
     - assets/images/Search_BathRoom_20.jpeg
+    #House Concept Page
+    - assets/images/Concept1.jpg
+    - assets/images/Concept2.jpg
+    - assets/images/Concept3.jpg
+    - assets/images/Concept4.jpg
+    - assets/images/Concept5.jpg
+    - assets/images/Concept6.jpg
+    - assets/images/Concept7.jpg
+    - assets/images/Concept8.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
