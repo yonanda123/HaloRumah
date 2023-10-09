@@ -104,7 +104,9 @@ class _HomePageState extends State<HomePage> {
                             SizedBox(width: 8.0),
                             ElevatedButton(
                               onPressed: () {
-                                // Tambahkan aksi yang diinginkan di sini
+                                setState(() {
+                                  Navigator.pushNamed(context, '/consultation');
+                                });
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Colors.red,
@@ -369,7 +371,9 @@ class _HomePageState extends State<HomePage> {
                           height: 50,
                         ),
                         onPressed: () {
-                          setState(() {});
+                          setState(() {
+                            Navigator.pushNamed(context, '/Furniture');
+                          });
                         },
                       ),
                     ),

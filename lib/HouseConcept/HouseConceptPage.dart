@@ -99,8 +99,7 @@ class _HouseConceptPageState extends State<HouseConceptPage> {
                               child: Card(
                                 elevation: 2.0,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(
-                                      8.0), // Radius untuk Card
+                                  borderRadius: BorderRadius.circular(8.0),
                                 ),
                                 child: Stack(
                                   children: [
@@ -111,14 +110,16 @@ class _HouseConceptPageState extends State<HouseConceptPage> {
                                       fit: BoxFit.cover,
                                     ),
                                     Positioned(
-                                      bottom: 8.0,
-                                      right: 8.0,
+                                      bottom:
+                                          8.0, // Sesuaikan dengan posisi yang Anda inginkan
+                                      right:
+                                          8.0, // Sesuaikan dengan posisi yang Anda inginkan
                                       child: Text(
                                         houseType,
                                         style: TextStyle(
                                           fontWeight: FontWeight.bold,
                                           fontSize: 16.0,
-                                          color: Colors.white,
+                                          color: Colors.white, // Warna teks
                                         ),
                                       ),
                                     ),

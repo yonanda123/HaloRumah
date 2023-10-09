@@ -9,6 +9,11 @@ import 'package:page_transition/page_transition.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:halo_rumah_flutter/Consultation/ConsultationPage.dart';
 import 'package:halo_rumah_flutter/HouseConcept/HouseConceptPage.dart';
+import 'package:halo_rumah_flutter/Furniture/FurniturePage.dart';
+import 'package:halo_rumah_flutter/Furniture/LivingRoomPage.dart';
+import 'package:halo_rumah_flutter/Furniture/KitchenPage.dart';
+import 'package:halo_rumah_flutter/Furniture/BathRoomPage.dart';
+import 'package:halo_rumah_flutter/Furniture/BedRoomPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -93,6 +98,11 @@ class _MyAppState extends State<MyApp> {
             ConsultationPage(username: _loggedInUsername),
         '/HouseConcept': (context) =>
             HouseConceptPage(username: _loggedInUsername),
+        '/Furniture': (context) => FurniturePage(username: _loggedInUsername),
+        '/LivingRoom': (context) => LivingRoomPage(username: _loggedInUsername),
+        '/Kitchen': (context) => KitchenPage(username: _loggedInUsername),
+        '/BathRoom': (context) => BathRoomPage(username: _loggedInUsername),
+        '/BedRoom': (context) => BedRoomPage(username: _loggedInUsername),
       },
     );
   }

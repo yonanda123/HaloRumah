@@ -186,6 +186,185 @@ flutter:
     - assets/images/Concept6.jpg
     - assets/images/Concept7.jpg
     - assets/images/Concept8.jpg
+    #Furniture Living Room Table
+    - assets/images/Table1.jfif
+    - assets/images/Table2.jfif
+    - assets/images/Table3.jfif
+    - assets/images/Table4.jfif
+    - assets/images/Table5.jfif
+    - assets/images/Table6.jfif
+    - assets/images/Table7.jfif
+    - assets/images/Table8.jfif
+    - assets/images/Table9.jfif
+    - assets/images/Table10.jfif
+    #Furniture Living Room Sofa
+    - assets/images/Sofa1.jfif
+    - assets/images/Sofa2.jfif
+    - assets/images/Sofa3.jfif
+    - assets/images/Sofa4.jfif
+    - assets/images/Sofa5.jfif
+    - assets/images/Sofa6.jfif
+    - assets/images/Sofa7.jfif
+    - assets/images/Sofa8.jfif
+    - assets/images/Sofa9.jfif
+    - assets/images/Sofa10.jfif
+    #Furniture Living Room Lamp
+    - assets/images/Lamp1.jfif
+    - assets/images/Lamp2.jfif
+    - assets/images/Lamp3.jfif
+    - assets/images/Lamp4.jfif
+    - assets/images/Lamp5.jfif
+    - assets/images/Lamp6.jfif
+    - assets/images/Lamp7.jfif
+    - assets/images/Lamp8.jfif
+    - assets/images/Lamp9.jfif
+    - assets/images/Lamp10.jfif
+    #Furniture Living Room Cabinet
+    - assets/images/Cabinet1.jfif
+    - assets/images/Cabinet2.jfif
+    - assets/images/Cabinet3.jfif
+    - assets/images/Cabinet4.jfif
+    - assets/images/Cabinet5.jfif
+    - assets/images/Cabinet6.jfif
+    - assets/images/Cabinet7.jfif
+    - assets/images/Cabinet8.jfif
+    - assets/images/Cabinet9.jfif
+    - assets/images/Cabinet10.jfif
+    #Furniture Bed Room SingleBeds
+    - assets/images/singleBed1.jfif
+    - assets/images/singleBed2.jfif
+    - assets/images/singleBed3.jfif
+    - assets/images/singleBed4.jfif
+    - assets/images/singleBed5.jfif
+    - assets/images/singleBed6.jfif
+    - assets/images/singleBed7.jfif
+    - assets/images/singleBed8.jfif
+    - assets/images/singleBed9.jfif
+    - assets/images/singleBed10.jfif
+    #Furniture Bed Room Queen & King
+    - assets/images/quuen&king1.jfif
+    - assets/images/quuen&king2.jfif
+    - assets/images/quuen&king3.jfif
+    - assets/images/quuen&king4.jfif
+    - assets/images/quuen&king5.jfif
+    - assets/images/quuen&king6.jfif
+    - assets/images/quuen&king7.jfif
+    - assets/images/quuen&king8.jfif
+    - assets/images/quuen&king9.jfif
+    #Furniture Bed Room Children's Bed
+    - assets/images/ChildrenBed1.jfif
+    - assets/images/ChildrenBed2.jfif
+    - assets/images/ChildrenBed3.jfif
+    - assets/images/ChildrenBed4.jfif
+    - assets/images/ChildrenBed5.jfif
+    - assets/images/ChildrenBed6.jfif
+    - assets/images/ChildrenBed7.jfif
+    - assets/images/ChildrenBed8.jfif
+    - assets/images/ChildrenBed9.jfif
+    #Furniture Bed Room Bunk Bed
+    - assets/images/BunkBed1.jfif
+    - assets/images/BunkBed2.jfif
+    - assets/images/BunkBed3.jfif
+    - assets/images/BunkBed4.jfif
+    - assets/images/BunkBed5.jfif
+    - assets/images/BunkBed6.jfif
+    - assets/images/BunkBed7.jfif
+    - assets/images/BunkBed8.jfif
+    - assets/images/BunkBed9.jfif
+    - assets/images/BunkBed10.jfif
+    #Furniture Bath Room Toilets
+    - assets/images/Toilet1.jfif
+    - assets/images/Toilet2.jfif
+    - assets/images/Toilet3.jfif
+    - assets/images/Toilet4.jfif
+    - assets/images/Toilet5.jfif
+    - assets/images/Toilet6.jfif
+    - assets/images/Toilet7.jfif
+    - assets/images/Toilet8.jfif
+    - assets/images/Toilet9.jfif
+    - assets/images/Toilet10.jfif
+    #Furniture Bath Room cabshel
+    - assets/images/Cabshel1.jfif
+    - assets/images/Cabshel2.jfif
+    - assets/images/Cabshel3.jfif
+    - assets/images/Cabshel4.jfif
+    - assets/images/Cabshel5.jfif
+    - assets/images/Cabshel6.jfif
+    - assets/images/Cabshel7.jfif
+    - assets/images/Cabshel8.jfif
+    - assets/images/Cabshel9.jfif
+    - assets/images/Cabshel10.jfif
+    #Furniture Bath Room Washbasins
+    - assets/images/Washbasins1.jfif
+    - assets/images/Washbasins2.jfif
+    - assets/images/Washbasins3.jfif
+    - assets/images/Washbasins4.jfif
+    - assets/images/Washbasins5.jfif
+    - assets/images/Washbasins6.jfif
+    - assets/images/Washbasins7.jfif
+    - assets/images/Washbasins8.jfif
+    - assets/images/Washbasins9.jfif
+    - assets/images/Washbasins10.jfif
+    #Furniture Bath Room Bathshow
+    - assets/images/Bathshow1.jfif
+    - assets/images/Bathshow2.jfif
+    - assets/images/Bathshow3.jfif
+    - assets/images/Bathshow4.jfif
+    - assets/images/Bathshow5.jfif
+    - assets/images/Bathshow6.jfif
+    - assets/images/Bathshow7.jfif
+    - assets/images/Bathshow8.jfif
+    - assets/images/Bathshow9.jfif
+    - assets/images/Bathshow10.jfif
+    #Furniture Bath Room bathaccess
+    - assets/images/Bathaccess1.jfif
+    - assets/images/Bathaccess2.jfif
+    - assets/images/Bathaccess3.jfif
+    - assets/images/Bathaccess4.jfif
+    - assets/images/Bathaccess5.jfif
+    - assets/images/Bathaccess6.jfif
+    - assets/images/Bathaccess7.jfif
+    - assets/images/Bathaccess8.jfif
+    - assets/images/Bathaccess9.jfif
+    - assets/images/Bathaccess10.jfif
+    #Furniture Kitchen Kitchen Set
+    - assets/images/KitchenSets1.jfif
+    - assets/images/KitchenSets2.jfif
+    - assets/images/KitchenSets3.jfif
+    - assets/images/KitchenSets4.jfif
+    - assets/images/KitchenSets5.jfif
+    - assets/images/KitchenSets6.jfif
+    #Furniture Kitchen Kitchen Cabinet
+    - assets/images/KitchenCabinet1.jfif
+    - assets/images/KitchenCabinet2.jfif
+    - assets/images/KitchenCabinet3.jfif
+    - assets/images/KitchenCabinet4.jfif
+    - assets/images/KitchenCabinet4.jfif
+    - assets/images/KitchenCabinet5.jfif
+    - assets/images/KitchenCabinet6.jfif
+    - assets/images/KitchenCabinet7.jfif
+    - assets/images/KitchenCabinet8.jfif
+    - assets/images/KitchenCabinet9.jfif
+    - assets/images/KitchenCabinet10.jfif
+    #Furniture Kitchen Kitchen Cabinet
+    - assets/images/Hanging1.jfif
+    - assets/images/Hanging2.png
+    - assets/images/Hanging3.jfif
+    - assets/images/Hanging4.jfif
+    - assets/images/Hanging5.jfif
+    - assets/images/Hanging6.jfif
+    - assets/images/Hanging7.jfif
+    - assets/images/Hanging8.jfif
+    #Furniture Kitchen Kitchen Bars
+    - assets/images/Bars1.jfif
+    - assets/images/Bars2.jfif
+    - assets/images/Bars3.jfif
+    - assets/images/Bars4.png
+    - assets/images/Bars5.jfif
+    - assets/images/Bars7.jfif
+    - assets/images/Bars8.jfif
+    - assets/images/Bars9.jfif
+    - assets/images/Bars10.jfif
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
