@@ -32,7 +32,6 @@ class _FurniturePageState extends State<FurniturePage> {
       'furniture_type': 'Bed Room',
       'rating': 3,
     },
-    // Tambahkan furnitur lain sesuai kebutuhan
   ];
 
   @override

@@ -335,7 +335,9 @@ class _HomePageState extends State<HomePage> {
                           height: 50,
                         ),
                         onPressed: () {
-                          setState(() {});
+                          setState(() {
+                            Navigator.pushNamed(context, '/Material');
+                          });
                         },
                       ),
                     ),
@@ -409,7 +411,9 @@ class _HomePageState extends State<HomePage> {
                           height: 50,
                         ),
                         onPressed: () {
-                          setState(() {});
+                          setState(() {
+                            Navigator.pushNamed(context, '/UnitPrice');
+                          });
                         },
                       ),
                     ),

@@ -2,19 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 
-void main() {
-  runApp(MyApp());
-}
-
-class MyApp extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: SearchPage(),
-    );
-  }
-}
-
 class SearchPage extends StatefulWidget {
   const SearchPage({super.key});
 
@@ -361,7 +348,16 @@ class _SearchPageState extends State<SearchPage> {
                                   height: _generateRandomHeight(),
                                   fit: BoxFit.cover,
                                 ),
-                                // ...
+                                Padding(
+                                  padding: const EdgeInsets.all(8.0),
+                                  child: Text(
+                                    contentItem,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.bold,
+                                      fontSize: 16.0,
+                                    ),
+                                  ),
+                                ),
                               ],
                             ),
                           ),
