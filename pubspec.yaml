@@ -1,0 +1,423 @@
+name: halo_rumah_flutter
+description: A new Flutter project.
+# The following line prevents the package from being accidentally published to
+# pub.dev using `flutter pub publish`. This is preferred for private packages.
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# In Android, build-name is used as versionName while build-number used as versionCode.
+# Read more about Android versioning at https://developer.android.com/studio/publish/versioning
+# In iOS, build-name is used as CFBundleShortVersionString while build-number is used as CFBundleVersion.
+# Read more about iOS versioning at
+# https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
+# In Windows, build-name is used as the major, minor, and patch parts
+# of the product and file versions while build-number is used as the build suffix.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.6 <4.0.0"
+
+# Dependencies specify other packages that your package needs in order to work.
+# To automatically upgrade your package dependencies to the latest versions
+# consider running `flutter pub upgrade --major-versions`. Alternatively,
+# dependencies can be manually updated by changing the version numbers below to
+# the latest version available on pub.dev. To see which dependencies have newer
+# versions available, run `flutter pub outdated`.
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^1.0.2
+  path_provider: ^2.0.2
+  sqflite: ^2.3.0
+  shared_preferences: ^2.2.0
+  url_launcher: ^6.1.12
+  carousel_slider: ^4.0.0
+  image_picker: ^0.8.4
+  restart_app: ^1.2.1
+  numberpicker: ^2.1.2
+  intl: ^0.18.1
+  animated_splash_screen: ^1.3.0
+  flutter_launcher_icons: "^0.13.1"
+  flutter_staggered_grid_view: ^0.4.0
+  expandable: ^5.0.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: true
+  image_path: "assets/images/RUMAH.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+
+  # The "flutter_lints" package below contains a set of recommended lints to
+  # encourage good coding practices. The lint set provided by the package is
+  # activated in the `analysis_options.yaml` file located at the root of your
+  # package. See that file for information about deactivating specific lint
+  # rules and activating additional ones.
+  flutter_lints: ^2.0.0
+
+# For information on the generic Dart part of this file, see the
+# following page: https://dart.dev/tools/pub/pubspec
+
+# The following section is specific to Flutter packages.
+flutter:
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - assets/images/default.png
+    - assets/images/BG.png
+    - assets/images/RUMAH.png
+    - assets/images/AskExpert.png
+    - assets/images/HouseType.png
+    - assets/images/DesainDetail.png
+    - assets/images/Material.png
+    - assets/images/Furniture.png
+    - assets/images/HousePrice.png
+    - assets/images/House1.jpg
+    - assets/images/House2.jpg
+    - assets/images/House3.jpg
+    - assets/images/Berita1.png
+    - assets/images/Berita2.png
+    - assets/images/Berita3.png
+    - assets/images/Berita4.png
+    - assets/images/Home.png
+    - assets/images/livingroom.png
+    - assets/images/bedroom.png
+    - assets/images/bathroom.png
+    - assets/images/kitchen.png
+    - assets/images/main_bedRoom.png
+    - assets/images/SplashScreen.png
+    - assets/images/1_Pekerjaan persiapan.png
+    - assets/images/2_Pekerjaan pondasi.png
+    - assets/images/3_Pekerjaan beton.png
+    - assets/images/4_Pekerjaan dinding.png
+    - assets/images/5_Pekerjaan kusen pintu dan jendela.png
+    - assets/images/6_Pekerjaan plafond.png
+    - assets/images/7_Pekerjaan lantai.png
+    - assets/images/8_Pekerjaan cat.png
+    - assets/images/9_Pekerjaan elektrikal.png
+    - assets/images/10_Pekerjaan mekanikal.png
+    #Consultation Page
+    - assets/images/Amar.jpg
+    - assets/images/Ayu.jpg
+    #Search Page Living Room
+    - assets/images/Search_LivingRoom_1.jpeg
+    - assets/images/Search_LivingRoom_2.jpeg
+    - assets/images/Search_LivingRoom_3.jpeg
+    - assets/images/Search_LivingRoom_4.jpeg
+    - assets/images/Search_LivingRoom_5.jpeg
+    - assets/images/Search_LivingRoom_6.jpeg
+    - assets/images/Search_LivingRoom_7.jpeg
+    - assets/images/Search_LivingRoom_8.jpeg
+    - assets/images/Search_LivingRoom_9.jpeg
+    - assets/images/Search_LivingRoom_10.jpeg
+    - assets/images/Search_LivingRoom_11.jpeg
+    - assets/images/Search_LivingRoom_12.jpeg
+    - assets/images/Search_LivingRoom_13.jpeg
+    - assets/images/Search_LivingRoom_14.jpeg
+    - assets/images/Search_LivingRoom_15.jpeg
+    - assets/images/Search_LivingRoom_16.jpeg
+    - assets/images/Search_LivingRoom_17.jpeg
+    - assets/images/Search_LivingRoom_18.jpeg
+    - assets/images/Search_LivingRoom_19.jpeg
+    - assets/images/Search_LivingRoom_20.jpeg
+    #Search Page Kitchen
+    - assets/images/Search_Kitchen_1.jpeg
+    - assets/images/Search_Kitchen_2.jpeg
+    - assets/images/Search_Kitchen_3.jpeg
+    - assets/images/Search_Kitchen_4.jpeg
+    - assets/images/Search_Kitchen_5.jpeg
+    - assets/images/Search_Kitchen_6.jpeg
+    - assets/images/Search_Kitchen_7.jpeg
+    - assets/images/Search_Kitchen_8.jpeg
+    - assets/images/Search_Kitchen_9.jpeg
+    - assets/images/Search_Kitchen_10.jpeg
+    - assets/images/Search_Kitchen_11.jpeg
+    - assets/images/Search_Kitchen_12.jpeg
+    - assets/images/Search_Kitchen_13.jpeg
+    - assets/images/Search_Kitchen_14.jpeg
+    - assets/images/Search_Kitchen_15.jpeg
+    - assets/images/Search_Kitchen_16.jpeg
+    - assets/images/Search_Kitchen_17.jpeg
+    #Search Page Bedroom
+    - assets/images/Search_BedRoom_1.jpeg
+    - assets/images/Search_BedRoom_2.jpeg
+    - assets/images/Search_BedRoom_3.jpeg
+    - assets/images/Search_BedRoom_4.jpeg
+    - assets/images/Search_BedRoom_5.jpeg
+    - assets/images/Search_BedRoom_6.jpeg
+    - assets/images/Search_BedRoom_7.jpeg
+    - assets/images/Search_BedRoom_8.jpeg
+    - assets/images/Search_BedRoom_9.jpeg
+    - assets/images/Search_BedRoom_10.jpeg
+    - assets/images/Search_BedRoom_11.jpeg
+    - assets/images/Search_BedRoom_12.jpeg
+    - assets/images/Search_BedRoom_13.jpeg
+    - assets/images/Search_BedRoom_14.jpeg
+    - assets/images/Search_BedRoom_15.jpeg
+    - assets/images/Search_BedRoom_16.jpeg
+    - assets/images/Search_BedRoom_17.jpeg
+    #Search Page Bathroom
+    - assets/images/Search_BathRoom_1.jpeg
+    - assets/images/Search_BathRoom_2.jpeg
+    - assets/images/Search_BathRoom_3.jpeg
+    - assets/images/Search_BathRoom_4.jpeg
+    - assets/images/Search_BathRoom_5.jpeg
+    - assets/images/Search_BathRoom_6.jpeg
+    - assets/images/Search_BathRoom_7.jpeg
+    - assets/images/Search_BathRoom_8.jpeg
+    - assets/images/Search_BathRoom_9.jpeg
+    - assets/images/Search_BathRoom_10.jpeg
+    - assets/images/Search_BathRoom_11.jpeg
+    - assets/images/Search_BathRoom_12.jpeg
+    - assets/images/Search_BathRoom_13.jpeg
+    - assets/images/Search_BathRoom_14.jpeg
+    - assets/images/Search_BathRoom_15.jpeg
+    - assets/images/Search_BathRoom_16.jpeg
+    - assets/images/Search_BathRoom_17.jpeg
+    - assets/images/Search_BathRoom_18.jpeg
+    - assets/images/Search_BathRoom_19.jpeg
+    - assets/images/Search_BathRoom_20.jpeg
+    #House Concept Page
+    - assets/images/Concept1.jpg
+    - assets/images/Concept2.jpg
+    - assets/images/Concept3.jpg
+    - assets/images/Concept4.jpg
+    - assets/images/Concept5.jpg
+    - assets/images/Concept6.jpg
+    - assets/images/Concept7.jpg
+    - assets/images/Concept8.jpg
+    #Furniture Living Room Table
+    - assets/images/Table1.jfif
+    - assets/images/Table2.jfif
+    - assets/images/Table3.jfif
+    - assets/images/Table4.jfif
+    - assets/images/Table5.jfif
+    - assets/images/Table6.jfif
+    - assets/images/Table7.jfif
+    - assets/images/Table8.jfif
+    - assets/images/Table9.jfif
+    - assets/images/Table10.jfif
+    #Furniture Living Room Sofa
+    - assets/images/Sofa1.jfif
+    - assets/images/Sofa2.jfif
+    - assets/images/Sofa3.jfif
+    - assets/images/Sofa4.jfif
+    - assets/images/Sofa5.jfif
+    - assets/images/Sofa6.jfif
+    - assets/images/Sofa7.jfif
+    - assets/images/Sofa8.jfif
+    - assets/images/Sofa9.jfif
+    - assets/images/Sofa10.jfif
+    #Furniture Living Room Lamp
+    - assets/images/Lamp1.jfif
+    - assets/images/Lamp2.jfif
+    - assets/images/Lamp3.jfif
+    - assets/images/Lamp4.jfif
+    - assets/images/Lamp5.jfif
+    - assets/images/Lamp6.jfif
+    - assets/images/Lamp7.jfif
+    - assets/images/Lamp8.jfif
+    - assets/images/Lamp9.jfif
+    - assets/images/Lamp10.jfif
+    #Furniture Living Room Cabinet
+    - assets/images/Cabinet1.jfif
+    - assets/images/Cabinet2.jfif
+    - assets/images/Cabinet3.jfif
+    - assets/images/Cabinet4.jfif
+    - assets/images/Cabinet5.jfif
+    - assets/images/Cabinet6.jfif
+    - assets/images/Cabinet7.jfif
+    - assets/images/Cabinet8.jfif
+    - assets/images/Cabinet9.jfif
+    - assets/images/Cabinet10.jfif
+    #Furniture Bed Room SingleBeds
+    - assets/images/singleBed1.jfif
+    - assets/images/singleBed2.jfif
+    - assets/images/singleBed3.jfif
+    - assets/images/singleBed4.jfif
+    - assets/images/singleBed5.jfif
+    - assets/images/singleBed6.jfif
+    - assets/images/singleBed7.jfif
+    - assets/images/singleBed8.jfif
+    - assets/images/singleBed9.jfif
+    - assets/images/singleBed10.jfif
+    #Furniture Bed Room Queen & King
+    - assets/images/quuen&king1.jfif
+    - assets/images/quuen&king2.jfif
+    - assets/images/quuen&king3.jfif
+    - assets/images/quuen&king4.jfif
+    - assets/images/quuen&king5.jfif
+    - assets/images/quuen&king6.jfif
+    - assets/images/quuen&king7.jfif
+    - assets/images/quuen&king8.jfif
+    - assets/images/quuen&king9.jfif
+    #Furniture Bed Room Children's Bed
+    - assets/images/ChildrenBed1.jfif
+    - assets/images/ChildrenBed2.jfif
+    - assets/images/ChildrenBed3.jfif
+    - assets/images/ChildrenBed4.jfif
+    - assets/images/ChildrenBed5.jfif
+    - assets/images/ChildrenBed6.jfif
+    - assets/images/ChildrenBed7.jfif
+    - assets/images/ChildrenBed8.jfif
+    - assets/images/ChildrenBed9.jfif
+    #Furniture Bed Room Bunk Bed
+    - assets/images/BunkBed1.jfif
+    - assets/images/BunkBed2.jfif
+    - assets/images/BunkBed3.jfif
+    - assets/images/BunkBed4.jfif
+    - assets/images/BunkBed5.jfif
+    - assets/images/BunkBed6.jfif
+    - assets/images/BunkBed7.jfif
+    - assets/images/BunkBed8.jfif
+    - assets/images/BunkBed9.jfif
+    - assets/images/BunkBed10.jfif
+    #Furniture Bath Room Toilets
+    - assets/images/Toilet1.jfif
+    - assets/images/Toilet2.jfif
+    - assets/images/Toilet3.jfif
+    - assets/images/Toilet4.jfif
+    - assets/images/Toilet5.jfif
+    - assets/images/Toilet6.jfif
+    - assets/images/Toilet7.jfif
+    - assets/images/Toilet8.jfif
+    - assets/images/Toilet9.jfif
+    - assets/images/Toilet10.jfif
+    #Furniture Bath Room cabshel
+    - assets/images/Cabshel1.jfif
+    - assets/images/Cabshel2.jfif
+    - assets/images/Cabshel3.jfif
+    - assets/images/Cabshel4.jfif
+    - assets/images/Cabshel5.jfif
+    - assets/images/Cabshel6.jfif
+    - assets/images/Cabshel7.jfif
+    - assets/images/Cabshel8.jfif
+    - assets/images/Cabshel9.jfif
+    - assets/images/Cabshel10.jfif
+    #Furniture Bath Room Washbasins
+    - assets/images/Washbasins1.jfif
+    - assets/images/Washbasins2.jfif
+    - assets/images/Washbasins3.jfif
+    - assets/images/Washbasins4.jfif
+    - assets/images/Washbasins5.jfif
+    - assets/images/Washbasins6.jfif
+    - assets/images/Washbasins7.jfif
+    - assets/images/Washbasins8.jfif
+    - assets/images/Washbasins9.jfif
+    - assets/images/Washbasins10.jfif
+    #Furniture Bath Room Bathshow
+    - assets/images/Bathshow1.jfif
+    - assets/images/Bathshow2.jfif
+    - assets/images/Bathshow3.jfif
+    - assets/images/Bathshow4.jfif
+    - assets/images/Bathshow5.jfif
+    - assets/images/Bathshow6.jfif
+    - assets/images/Bathshow7.jfif
+    - assets/images/Bathshow8.jfif
+    - assets/images/Bathshow9.jfif
+    - assets/images/Bathshow10.jfif
+    #Furniture Bath Room bathaccess
+    - assets/images/Bathaccess1.jfif
+    - assets/images/Bathaccess2.jfif
+    - assets/images/Bathaccess3.jfif
+    - assets/images/Bathaccess4.jfif
+    - assets/images/Bathaccess5.jfif
+    - assets/images/Bathaccess6.jfif
+    - assets/images/Bathaccess7.jfif
+    - assets/images/Bathaccess8.jfif
+    - assets/images/Bathaccess9.jfif
+    - assets/images/Bathaccess10.jfif
+    #Furniture Kitchen Kitchen Set
+    - assets/images/KitchenSets1.jfif
+    - assets/images/KitchenSets2.jfif
+    - assets/images/KitchenSets3.jfif
+    - assets/images/KitchenSets4.jfif
+    - assets/images/KitchenSets5.jfif
+    - assets/images/KitchenSets6.jfif
+    #Furniture Kitchen Kitchen Cabinet
+    - assets/images/KitchenCabinet1.jfif
+    - assets/images/KitchenCabinet2.jfif
+    - assets/images/KitchenCabinet3.jfif
+    - assets/images/KitchenCabinet4.jfif
+    - assets/images/KitchenCabinet4.jfif
+    - assets/images/KitchenCabinet5.jfif
+    - assets/images/KitchenCabinet6.jfif
+    - assets/images/KitchenCabinet7.jfif
+    - assets/images/KitchenCabinet8.jfif
+    - assets/images/KitchenCabinet9.jfif
+    - assets/images/KitchenCabinet10.jfif
+    #Furniture Kitchen Kitchen Cabinet
+    - assets/images/Hanging1.jfif
+    - assets/images/Hanging2.png
+    - assets/images/Hanging3.jfif
+    - assets/images/Hanging4.jfif
+    - assets/images/Hanging5.jfif
+    - assets/images/Hanging6.jfif
+    - assets/images/Hanging7.jfif
+    - assets/images/Hanging8.jfif
+    #Furniture Kitchen Kitchen Bars
+    - assets/images/Bars1.jfif
+    - assets/images/Bars2.jfif
+    - assets/images/Bars3.jfif
+    - assets/images/Bars4.png
+    - assets/images/Bars5.jfif
+    - assets/images/Bars7.jfif
+    - assets/images/Bars8.jfif
+    - assets/images/Bars9.jfif
+    - assets/images/Bars10.jfif
+    #Furniture Materia Struktur
+    - assets/images/Stuktur1.jpg
+    - assets/images/Stuktur2.jpg
+    - assets/images/Stuktur3.jpg
+    - assets/images/Stuktur4.jpg
+    - assets/images/Stuktur5.jpg
+    #Furniture Material Arsitektur
+    - assets/images/Arsitektur1.jpg
+    - assets/images/Arsitektur2.jpg
+    - assets/images/Arsitektur3.jpg
+    - assets/images/Arsitektur4.jpg
+    - assets/images/Arsitektur5.jpg
+    - assets/images/Arsitektur6.jpg
+    #Furniture Material Mep
+    - assets/images/MEP1.png
+    - assets/images/MEP2.jpg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.dev/assets-and-images/#resolution-aware
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.dev/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.dev/custom-fonts/#from-packages

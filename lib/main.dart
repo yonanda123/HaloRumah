@@ -16,6 +16,7 @@ import 'package:halo_rumah_flutter/Furniture/BathRoomPage.dart';
 import 'package:halo_rumah_flutter/Furniture/BedRoomPage.dart';
 import 'package:halo_rumah_flutter/Material/MaterialPage.dart';
 import 'package:halo_rumah_flutter/UnitPrice/UnitPricePage.dart';
+import 'package:halo_rumah_flutter/Other/OtherPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -108,6 +109,7 @@ class _MyAppState extends State<MyApp> {
         '/Material': (context) =>
             MaterialBangunanPage(username: _loggedInUsername),
         '/UnitPrice': (context) => UnitPrice(username: _loggedInUsername),
+        '/Other': (context) => OtherPage(username: _loggedInUsername),
       },
     );
   }

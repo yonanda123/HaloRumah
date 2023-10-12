@@ -75,7 +75,7 @@ class _UnitPriceState extends State<UnitPrice> {
                       ],
                     ),
                     CustomExpansionTile(
-                      logoPath: 'assets/images/3_Pekerjaan beton',
+                      logoPath: 'assets/images/3_Pekerjaan beton.png',
                       uraianPekerjaan: "Pekerjaan Beton	",
                       subBab: [
                         "Membuat 1 m3 Beton Bertulang Campuran 1 : 2 : 3 Rp 16,024,305 ",
@@ -100,7 +100,8 @@ class _UnitPriceState extends State<UnitPrice> {
                       ],
                     ),
                     CustomExpansionTile(
-                      logoPath: '5_Pekerjaan kusen pintu dan jendela.png',
+                      logoPath:
+                          'assets/images/5_Pekerjaan kusen pintu dan jendela.png',
                       uraianPekerjaan: "Pekerjaan Pintu dan Jendela	",
                       subBab: [
                         "Pembuatan 1 m3 Kusen Pintu / Jendela Kayu Kamper Rp 7,519,626 ",
@@ -115,14 +116,14 @@ class _UnitPriceState extends State<UnitPrice> {
                       ],
                     ),
                     CustomExpansionTile(
-                      logoPath: '6_Pekerjaan plafond.png',
+                      logoPath: 'assets/images/6_Pekerjaan plafond.png',
                       uraianPekerjaan: "Pekerjaan Atap",
                       subBab: [
                         "Pemasangan m2 Atap Besi Hollow Rp 349,056 ",
                       ],
                     ),
                     CustomExpansionTile(
-                      logoPath: '7_Pekerjaan lantai.png',
+                      logoPath: 'assets/images/7_Pekerjaan lantai.png',
                       uraianPekerjaan: "Pekerjaan Lantai",
                       subBab: [
                         "Pemasangan Lantai Keramik Ukuran 30 x 30 cm Putih Rp 297,250 ",
@@ -130,7 +131,7 @@ class _UnitPriceState extends State<UnitPrice> {
                       ],
                     ),
                     CustomExpansionTile(
-                      logoPath: '8_Pekerjaan cat.png',
+                      logoPath: 'assets/images/8_Pekerjaan cat.png',
                       uraianPekerjaan: "Pekerjaan Cat",
                       subBab: [
                         "Pengecatan 1 m2 Tembok Baru ( 1 Lapis Plamir, 1 Lapis Cat Dasar, 2 Lapis Cat Penutup )	Rp 34,774 ",
@@ -139,7 +140,7 @@ class _UnitPriceState extends State<UnitPrice> {
                       ],
                     ),
                     CustomExpansionTile(
-                      logoPath: '9_Pekerjaan elektrikal.png',
+                      logoPath: 'assets/images/9_Pekerjaan elektrikal.png',
                       uraianPekerjaan: "Pekerjaan Elektrikal",
                       subBab: [
                         "(K3) Pemasangan 1 Buah Titik Lampu Rp 713,491 ",
@@ -180,12 +181,12 @@ class _UnitPriceState extends State<UnitPrice> {
 class CustomExpansionTile extends StatelessWidget {
   final String uraianPekerjaan;
   final List<String> subBab;
-  final String logoPath; // Tambahkan setter dan getter untuk logo
+  final String logoPath;
 
   CustomExpansionTile({
     required this.uraianPekerjaan,
     required this.subBab,
-    required this.logoPath, // Tambahkan logoPath ke konstruktor
+    required this.logoPath,
   });
 
   @override
@@ -195,47 +196,50 @@ class CustomExpansionTile extends StatelessWidget {
         padding: const EdgeInsets.only(right: 16, left: 16),
         child: Container(
           decoration: BoxDecoration(
-            color: Colors.white, // Ganti warna latar belakang sesuai kebutuhan
+            color: Colors.white,
             borderRadius: BorderRadius.circular(10.0),
             boxShadow: [
               BoxShadow(
                 color: Colors.grey.withOpacity(0.5),
                 spreadRadius: 1,
                 blurRadius: 3,
-                offset: Offset(0, 3), // Ubah bayangan sesuai kebutuhan
+                offset: Offset(0, 3),
               ),
             ],
           ),
           child: Column(
-            // Mengubah menjadi Column untuk membuat tombol Expanded masuk ke dalam card
             children: [
               Padding(
                 padding: const EdgeInsets.all(16.0),
                 child: Row(
                   children: [
-                    // Tambahkan CircleAvatar (logo)
                     CircleAvatar(
-                      backgroundImage: AssetImage(
-                          logoPath), // Gunakan logoPath yang disediakan
-                      radius: 16, // Sesuaikan ukuran avatar
+                      backgroundImage: AssetImage(logoPath),
+                      radius: 16,
                     ),
                     SizedBox(width: 8),
-                    Text(
-                      uraianPekerjaan,
-                      style: TextStyle(
-                        fontFamily: 'Inter',
-                        fontSize: 20,
-                        fontWeight: FontWeight.w700,
-                        height: 15 / 12,
-                        letterSpacing: 0,
+                    Flexible(
+                      child: FittedBox(
+                        fit: BoxFit.scaleDown,
+                        alignment: Alignment.centerLeft,
+                        child: Text(
+                          uraianPekerjaan,
+                          style: TextStyle(
+                            fontFamily: 'Inter',
+                            fontSize: 20,
+                            fontWeight: FontWeight.w700,
+                            height: 15 / 12,
+                            letterSpacing: 0,
+                          ),
+                        ),
                       ),
                     ),
                   ],
                 ),
               ),
               Expandable(
-                collapsed: Container(), // Tombol Expanded di dalam Card
-                expanded: Container(), // Tombol Expanded di dalam Card
+                collapsed: Container(),
+                expanded: Container(),
               ),
             ],
           ),
@@ -243,11 +247,11 @@ class CustomExpansionTile extends StatelessWidget {
       ),
       collapsed: Container(
         decoration: BoxDecoration(
-          color: Colors.white, // Ganti warna latar belakang sesuai kebutuhan
+          color: Colors.white,
           borderRadius: BorderRadius.circular(10.0),
         ),
         child: Text(""),
-      ), // Tambahkan widget sesuai kebutuhan
+      ),
       expanded: Padding(
         padding: const EdgeInsets.only(left: 12, bottom: 8, right: 50),
         child: Card(

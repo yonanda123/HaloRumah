@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:halo_rumah_flutter/database_helper.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'dart:io';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -54,6 +56,27 @@ class _LoginPageState extends State<LoginPage> {
     }
     _usernameController.clear();
     _passwordController.clear();
+  }
+
+  void launchWhatsApp({
+    required String phone,
+    required String message,
+  }) async {
+    String url() {
+      if (Platform.isAndroid) {
+        // add the [https]
+        return "https://wa.me/$phone/?text=${Uri.parse(message)}"; // new line
+      } else {
+        // add the [https]
+        return "https://api.whatsapp.com/send?phone=$phone=${Uri.parse(message)}"; // new line
+      }
+    }
+
+    if (await canLaunch(url())) {
+      await launch(url());
+    } else {
+      throw 'Could not launch ${url()}';
+    }
   }
 
   @override
@@ -155,7 +178,10 @@ class _LoginPageState extends State<LoginPage> {
                     SizedBox(height: 8.0),
                     TextButton(
                       onPressed: () {
-                        Navigator.pushNamed(context, '/stepper');
+                        launchWhatsApp(
+                            phone: '+6281357795007',
+                            message:
+                                'Halo Saya Ingin Membeli Aplikasi Halo Rumah !');
                       },
                       style: TextButton.styleFrom(
                         foregroundColor: Color(0xFF000000),

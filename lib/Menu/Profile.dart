@@ -142,7 +142,7 @@ class _ProfileState extends State<Profile> {
               child: Text('Save'),
               onPressed: () async {
                 final Map<String, dynamic> userMap = {
-                  'id': user['id'], 
+                  'id': user['id'],
                   'name': nameController.text,
                   'address': addressController.text,
                   'phone': phoneController.text,
@@ -204,19 +204,19 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Container(
-              width: double.infinity, 
-              height: 150.0, 
+              width: double.infinity,
+              height: 150.0,
               margin:
                   EdgeInsets.only(right: 32.0, left: 32, bottom: 32, top: 16),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(16.0), 
+                borderRadius: BorderRadius.circular(16.0),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3), 
+                    offset: Offset(0, 3),
                   ),
                 ],
               ),
@@ -336,7 +336,7 @@ class _ProfileState extends State<Profile> {
             ),
             Container(
               width: double.infinity, // Lebar sesuaikan dengan layar
-              height: 175.0, // Tinggi card
+              height: 100.0, // Tinggi card
               margin: EdgeInsets.only(right: 32.0, left: 32),
               decoration: BoxDecoration(
                 color: Colors.white,
@@ -352,24 +352,24 @@ class _ProfileState extends State<Profile> {
               ),
               child: ListView(
                 children: [
-                  ListTile(
-                    title: Text('About'),
-                    trailing: Icon(Icons.arrow_forward_ios),
-                    leading: Icon(
-                      Icons.perm_device_information_sharp,
-                      color: Colors.black,
-                    ),
-                    onTap: () {
-                      // Aksi saat list "About" ditekan
-                      // Anda dapat menambahkan logika sesuai kebutuhan
-                    },
-                  ),
-                  const Divider(
-                    thickness: 0.1,
-                    indent: 15,
-                    endIndent: 15,
-                    color: Colors.black,
-                  ),
+                  // ListTile(
+                  //   title: Text('About'),
+                  //   trailing: Icon(Icons.arrow_forward_ios),
+                  //   leading: Icon(
+                  //     Icons.perm_device_information_sharp,
+                  //     color: Colors.black,
+                  //   ),
+                  //   onTap: () {
+                  //     // Aksi saat list "About" ditekan
+                  //     // Anda dapat menambahkan logika sesuai kebutuhan
+                  //   },
+                  // ),
+                  // const Divider(
+                  //   thickness: 0.1,
+                  //   indent: 15,
+                  //   endIndent: 15,
+                  //   color: Colors.black,
+                  // ),
                   ListTile(
                     title: Text('Logout'),
                     trailing: Icon(Icons.arrow_forward_ios),

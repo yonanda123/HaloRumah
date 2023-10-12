@@ -246,18 +246,20 @@ class _HomePageState extends State<HomePage> {
                       ),
                       child: IconButton(
                         icon: Image.asset(
-                          'assets/images/HouseType.png',
+                          'assets/images/HousePrice.png',
                           width: 50,
                           height: 50,
                         ),
                         onPressed: () {
-                          setState(() {});
+                          setState(() {
+                            Navigator.pushNamed(context, '/UnitPrice');
+                          });
                         },
                       ),
                     ),
                     SizedBox(height: 8), // Spasi antara Container dan teks
                     Text(
-                      'My House',
+                      'Unit Price',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontSize: 12,
@@ -405,21 +407,17 @@ class _HomePageState extends State<HomePage> {
                         color: Color.fromARGB(255, 216, 216, 216),
                       ),
                       child: IconButton(
-                        icon: Image.asset(
-                          'assets/images/HousePrice.png',
-                          width: 50,
-                          height: 50,
-                        ),
+                        icon: const Icon(Icons.more_horiz),
                         onPressed: () {
                           setState(() {
-                            Navigator.pushNamed(context, '/UnitPrice');
+                            Navigator.pushNamed(context, '/Other');
                           });
                         },
                       ),
                     ),
                     SizedBox(height: 8), // Spasi antara Container dan teks
                     Text(
-                      'Unit Price',
+                      'Other',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontSize: 12,
@@ -482,7 +480,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.only(
               right: 32,
               left: 32,
-              bottom: 32,
+              bottom: 8,
               top: 16,
             ),
             child: Row(
@@ -540,7 +538,94 @@ class _HomePageState extends State<HomePage> {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Image.asset(
-                            'assets/images/Berita1.png',
+                            'assets/images/Berita2.png',
+                            width: 200,
+                            height: 100,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Binngung Cara Bikin Rumah ?',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+              right: 32,
+              left: 32,
+              bottom: 32,
+            ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      // Handle tap for the first card here
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            'assets/images/Berita3.png',
+                            width: 200,
+                            height: 100,
+                          ),
+                          Padding(
+                            padding: EdgeInsets.all(8.0),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  'Binngung Cara Bikin Rumah ?',
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                SizedBox(
+                  width: 8,
+                ),
+                Expanded(
+                  child: GestureDetector(
+                    onTap: () {
+                      // Handle tap for the second card here
+                    },
+                    child: Card(
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Image.asset(
+                            'assets/images/Berita4.png',
                             width: 200,
                             height: 100,
                           ),
