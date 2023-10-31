@@ -134,7 +134,7 @@ class _ConsultationPageState extends State<ConsultationPage> {
 
   final List<Map<String, dynamic>> consultationList = [
     {
-      'name': 'Jamar Rizqi Afdholy, S.T., M.T.',
+      'name': 'Amar Rizqi Afdholy, S.T., M.T.',
       'phoneNumber': '+628115122771',
       'avatarPath': 'assets/images/Amar.jpg',
     },
@@ -143,6 +143,11 @@ class _ConsultationPageState extends State<ConsultationPage> {
       'phoneNumber': '+6287860199675',
       'avatarPath': 'assets/images/Ayu.jpg',
     },
+    {
+      'name': 'Hadi Surya Wibawanto Sunarwadi, ST., MT, IPP.',
+      'phoneNumber': '+6281252034740',
+      'avatarPath': 'assets/images/Hadi.jpg',
+    }
   ];
 
   @override

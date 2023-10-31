@@ -18,6 +18,7 @@ class _ProcessState extends State<Process> {
   int _currentHorizontalIntValueMainBedRoom = 0;
 
   double _luasBangunan = 0.0;
+  double _luasBangunanReal = 0.0;
   double panjangBangunan = 0.0;
   double lebarBangunan = 0.0;
   double resultLivingRoom = 0.0;
@@ -66,6 +67,7 @@ class _ProcessState extends State<Process> {
 
             double luasTanah = panjangTanah * lebarTanah;
             _luasBangunan = panjangBangunan * lebarBangunan;
+            _luasBangunanReal = _luasBangunan;
 
             if (_luasBangunan >= luasTanah) {
               showDialog(
@@ -132,6 +134,7 @@ class _ProcessState extends State<Process> {
                     resultRABMainBedRoom: _currentHorizontalIntValueMainBedRoom,
                     resultRABBathRoom: _currentHorizontalIntValueBathRoom,
                     resultRABKitchen: _currentHorizontalIntValueKitchen,
+                    luasBangunan: _luasBangunanReal,
                     onPressed: () {
                       Navigator.of(context).pop();
                     },

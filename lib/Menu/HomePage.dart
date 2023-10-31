@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:halo_rumah_flutter/Menu/detail_page.dart';
 
 class HomePage extends StatefulWidget {
   final String username;
@@ -20,6 +21,8 @@ class _HomePageState extends State<HomePage> {
     Image.asset('assets/images/House1.jpg'),
     Image.asset('assets/images/House2.jpg'),
     Image.asset('assets/images/House3.jpg'),
+    Image.asset('assets/images/House4.jpeg'),
+    Image.asset('assets/images/House5.jpg'),
   ];
 
   int _curent = 0;
@@ -477,181 +480,102 @@ class _HomePageState extends State<HomePage> {
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(
-              right: 32,
-              left: 32,
-              bottom: 8,
-              top: 16,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            padding: EdgeInsets.symmetric(horizontal: 32, vertical: 32),
+            child: Column(
               children: [
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      // Handle tap for the first card here
-                    },
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            'assets/images/Berita1.png',
-                            width: 200,
-                            height: 100,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Binngung Cara Bikin Rumah ?',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    buildTappableCard(
+                        context,
+                        'assets/images/Berita1.jpg',
+                        'Enam Langkah Sebelum Membangun Rumah',
+                        'Sebelum Anda memulai proyek pembangunan rumah, ada enam langkah penting yang perlu Anda pertimbangkan. Pertama, pastikan Anda telah memiliki tanah yang akan menjadi lokasi rumah Anda. Memiliki tanah sendiri merupakan langkah awal yang krusial karena ini dapat membantu mengendalikan biaya konstruksi dan memberikan Anda kendali atas lokasi rumah impian Anda. Kedua, dalam upaya menciptakan rumah sesuai keinginan Anda, carilah referensi desain rumah yang cocok dengan anggaran yang telah Anda tentukan. Jika Anda memiliki preferensi desain tertentu, sangat disarankan untuk berkonsultasi dengan seorang arsitek atau penyedia jasa konstruksi yang kompeten.',
+                        'Ketiga, buatlah rencana anggaran biaya (RAB) yang sangat teliti. RAB adalah komponen krusial dalam proyek pembangunan rumah. Pastikan untuk mencantumkan semua komponen biaya, termasuk cadangan dana sekitar 5-10% dari total anggaran untuk mengatasi perubahan atau kejutan selama proyek berlangsung. Rencana anggaran biaya juga harus mencakup faktor risiko seperti kemungkinan kecelakaan kerja, biaya material, biaya tenaga kerja, dan potensi kerusakan peralatan selama proses pembangunan.',
+                        'Selanjutnya, langkah keempat adalah seleksi tenaga kerja atau tukang yang akan bekerja pada proyek Anda. Pilih tukang dengan cermat, pastikan mereka memiliki reputasi yang baik dan dapat dipercaya. Kualitas pekerjaan tukang sangat mempengaruhi hasil akhir rumah Anda. Kelima, atur jadwal proyek dengan baik. Membangun rumah adalah proyek yang memakan waktu, jadi Anda harus menyediakan waktu untuk mengawasi proyek atau berkomunikasi dengan pihak yang bertanggung jawab. Terakhir, pertimbangkan faktor cuaca dengan cermat. Memilih waktu yang tepat untuk memulai pembangunan rumah sangat penting. Sebaiknya rumah dibangun saat musim kemarau untuk menghindari gangguan cuaca yang dapat memengaruhi jadwal proyek. Dengan memperhatikan keenam langkah ini, Anda dapat memastikan bahwa proyek pembangunan rumah Anda berjalan lebih lancar, sesuai dengan rencana, dan menghasilkan rumah yang memuaskan.'),
+                    buildTappableCard(
+                        context,
+                        'assets/images/Berita2.png',
+                        'Berbagai Kesalahan Saat Membangun Rumah',
+                        'Setelah memahami saran-saran yang diperlukan dalam membangun rumah, tak boleh diabaikan pula pemahaman mengenai kesalahan umum yang sering terjadi selama proses pembangunan. Kesalahan-kesalahan ini, jika tidak diperhatikan, dapat menghambat kelancaran proyek dan berpotensi menimbulkan kerugian. Salah satu kesalahan utama yang sering terjadi adalah kurangnya riset. Merupakan langkah penting untuk mengumpulkan sebanyak mungkin referensi dan ide sebelum memulai proyek pembangunan rumah. Meneliti dan mencari informasi yang relevan adalah langkah awal yang penting.',
+                        'Kedua, kurangnya realisme dalam mengelola proyek dapat menjadi masalah. Penting untuk selalu mempertimbangkan berbagai aspek, termasuk anggaran dan faktor struktural, dengan penuh realisme. Memiliki pemahaman yang kuat tentang batasan dan kendala yang mungkin muncul selama proyek adalah kunci untuk menjalankannya dengan sukses.',
+                        'Dalam keseluruhan proses pembangunan rumah, seringkali terjadi kesalahan seperti terburu-buru dalam pengambilan keputusan, pemilihan bahan yang tidak sesuai, pengabaian terhadap detail-detail kecil, ketidakterorganisasian, dan kurangnya komunikasi antarpihak yang terlibat dalam proyek. Semua kesalahan ini bisa mengganggu kelancaran proyek dan berdampak negatif pada hasil akhir. Dengan memahami dan menghindari kesalahan-kesalahan ini, Anda dapat mengurangi risiko penyesalan yang mungkin muncul setelah rumah selesai dibangun. Kesadaran tentang kesalahan-kesalahan ini adalah langkah penting menuju pembangunan rumah yang sukses dan memuaskan.'),
+                  ],
                 ),
-                SizedBox(
-                  width: 8,
+                SizedBox(height: 16),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    buildTappableCard(
+                        context,
+                        'assets/images/Berita3.jpg',
+                        'Seperti Apa Material Bangunan Rumah yang Berkualitas?',
+                        'Saat membangun rumah, setiap orang pasti ingin memiliki hunian yang memenuhi aspek kenyamanan, keamanan, serta tahan lama. Namun untuk dapat mewujudkannya perlu perlakuan khusus, salah satunya memperhatikan kualitas material bangunan yang digunakan. Melansir dari unggahan akun Instagram National Affordable Housing Program (NAHP) Kementerian PUPR pada Senin, , selain detail ketentuan dalam elemen rumah, kualitas dari material juga sangat penting. Baca juga: Harga Bahan Bangunan Naik, Pasar Rumah Tapak Tetap Stabil Bahan bangunan yang dipergunakan saat konstruksi harus berkualitas baik, agar tujuan dari rumah aman dan tahan lama bisa terwujud. Adapun material yang dimaksud meliputi beton, mortar, batu pondasi, besi, batu bata, dan kayu. Berikut ulasan selengkapnya.',
+                        'Penting untuk memahami kualitas material bangunan yang digunakan dalam konstruksi rumah. Dalam hal beton, perbandingan yang direkomendasikan adalah 1 semen: 2 pasir: 3 kerikil: 0,5 air. Semen tipe 1 berkualitas yang sesuai dengan Standar Nasional Indonesia (SNI) harus digunakan, dengan pastikan kemasannya tidak rusak. Penggunaan pasir yang bebas dari kandungan tanah, lumpur, atau bahan organik, terutama pasir dari sungai atau darat, sangat penting. Ukuran kerikil maksimum 20 milimeter dengan gradasi yang baik dan bebas dari kontaminan seperti tanah atau lumpur juga diperlukan untuk memastikan kualitas beton yang baik. Selain itu, mortar harus dicampur dengan perbandingan 1 semen: 4 pasir bersih: air secukupnya, dan pastikan pasir yang digunakan tidak mengandung lumpur yang dapat mengganggu ikatan dengan semen. Batu pondasi harus terbuat dari batu kali atau batu gunung dengan tekstur keras dan banyak sudut untuk memperkuat ikatan dengan mortar, dan batu bulat dapat dibelah untuk mendapatkan sudut yang tajam.',
+                        'Selain itu, penggunaan besi dengan diameter minimal 10 milimeter untuk besi utama dan 8 milimeter untuk besi Sengkang sangat penting, dengan pastikan besi tersebut dalam kondisi baik, tidak berkarat, lurus, dan seragam. Batu bata yang berkualitas harus memiliki tepi yang lurus dan tajam, minim retakan, tahan patah, dimensi yang sesuai, dan seragam. Sebelum pemasangan, perendaman batu bata dalam air adalah langkah yang disarankan. Terakhir, pemilihan kayu yang berkualitas harus mencakup ciri-ciri seperti keras, kering, berwarna gelap, bebas dari retakan, dan memiliki bentuk yang lurus. Material non-struktur seperti atap yang baik terbuat dari seng, genteng, atau aspal (bitumen), sedangkan material plafon dapat menggunakan triplek, GRC, atau gypsum. Penting untuk diingat bahwa penggunaan material berbahan asbes tidak diperbolehkan karena berpotensi berbahaya bagi kesehatan. Dengan memperhatikan kualitas material seperti ini, Anda dapat memastikan bahwa konstruksi rumah Anda memenuhi standar yang dibutuhkan.'),
+                    buildTappableCard(
+                        context,
+                        'assets/images/Berita4.jpg',
+                        'Material Bangunan Rumah yang Berkualitas',
+                        'Kualitas material bangunan merupakan faktor kunci dalam pembangunan rumah yang memengaruhi kenyamanan, keamanan, dan ketahanan jangka panjang. Beberapa contoh material bangunan berkualitas yang perlu diperhatikan termasuk beton, mortar, batu pondasi, besi, batu bata, dan kayu. Dalam penggunaan beton, perbandingan yang tepat adalah 1 semen: 2 pasir: 3 kerikil: 0,5 air, dengan menggunakan semen tipe 1 yang sesuai dengan Standar Nasional Indonesia (SNI). Pasir harus berasal dari sumber sungai atau darat dan harus bebas dari tanah, lumpur, atau bahan organik. Kerikil dengan ukuran maksimum 20 milimeter, gradasi yang baik, dan tanpa kontaminan juga penting. Demikian juga, campuran mortar harus memiliki perbandingan yang tepat dan pasir bersih bebas dari kandungan lumpur, yang dapat mengganggu ikatan dengan semen. Pondasi yang kokoh memerlukan penggunaan batu kali atau batu gunung dengan tekstur keras dan banyak sudut.',
+                        'Selain itu, besi yang digunakan dalam konstruksi harus memiliki diameter minimal 10 milimeter untuk besi utama dan 8 milimeter untuk besi Sengkang, dan harus dalam kondisi baik, tidak berkarat, lurus, dan seragam. Batu bata berkualitas memiliki tepi yang lurus, minim retakan, dimensi yang sesuai, dan harus direndam dalam air sebelum pemasangan. Kayu yang berkualitas harus memenuhi kriteria seperti keras, kering, berwarna gelap, bebas dari retakan, dan lurus.',
+                        'Tidak hanya material struktur, tetapi material non-struktur seperti atap dan plafon juga harus dipertimbangkan. Material atap yang baik termasuk seng, genteng, atau aspal (bitumen), sementara material plafon dapat berupa triplek, GRC, atau gypsum. Penting untuk menghindari penggunaan material berbahan asbes karena berpotensi berbahaya bagi kesehatan. Dengan memperhatikan pemilihan material berkualitas ini, Anda dapat memastikan bahwa rumah Anda memenuhi standar kenyamanan, keamanan, dan ketahanan yang diharapkan.'),
+                  ],
                 ),
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      // Handle tap for the second card here
-                    },
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            'assets/images/Berita2.png',
-                            width: 200,
-                            height: 100,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Binngung Cara Bikin Rumah ?',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
-              ],
-            ),
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-              right: 32,
-              left: 32,
-              bottom: 32,
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      // Handle tap for the first card here
-                    },
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            'assets/images/Berita3.png',
-                            width: 200,
-                            height: 100,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Binngung Cara Bikin Rumah ?',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                ),
-                SizedBox(
-                  width: 8,
-                ),
-                Expanded(
-                  child: GestureDetector(
-                    onTap: () {
-                      // Handle tap for the second card here
-                    },
-                    child: Card(
-                      shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10.0),
-                      ),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Image.asset(
-                            'assets/images/Berita4.png',
-                            width: 200,
-                            height: 100,
-                          ),
-                          Padding(
-                            padding: EdgeInsets.all(8.0),
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: [
-                                Text(
-                                  'Binngung Cara Bikin Rumah ?',
-                                  style: TextStyle(
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ),
-                )
               ],
             ),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget buildTappableCard(BuildContext context, String imagePath, String title,
+      String description1, String description2, String description3) {
+    double screenWidth = MediaQuery.of(context).size.width;
+    double cardContainerWidth = (screenWidth - 70) / 2;
+    return Container(
+      width: cardContainerWidth,
+      child: InkWell(
+        onTap: () {
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => DetailPage(
+                  imagePath, title, description1, description2, description3),
+            ),
+          );
+        },
+        child: Card(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Image.asset(
+                imagePath,
+                width: double.infinity,
+                height: 150,
+                fit: BoxFit.cover,
+              ),
+              Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      title,
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }

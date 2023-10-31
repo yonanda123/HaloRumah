@@ -89,10 +89,13 @@ flutter:
     - assets/images/House1.jpg
     - assets/images/House2.jpg
     - assets/images/House3.jpg
-    - assets/images/Berita1.png
+    - assets/images/House4.jpeg
+    - assets/images/House5.jpg
+    - assets/images/Berita1.jpg
     - assets/images/Berita2.png
-    - assets/images/Berita3.png
-    - assets/images/Berita4.png
+    - assets/images/Berita3.jpg
+    - assets/images/Berita4.jpg
+    - assets/images/Berita5.jpg
     - assets/images/Home.png
     - assets/images/livingroom.png
     - assets/images/bedroom.png
@@ -113,6 +116,7 @@ flutter:
     #Consultation Page
     - assets/images/Amar.jpg
     - assets/images/Ayu.jpg
+    - assets/images/Hadi.jpg
     #Search Page Living Room
     - assets/images/Search_LivingRoom_1.jpeg
     - assets/images/Search_LivingRoom_2.jpeg
