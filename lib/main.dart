@@ -17,6 +17,8 @@ import 'package:halo_rumah_flutter/Furniture/BedRoomPage.dart';
 import 'package:halo_rumah_flutter/Material/MaterialPage.dart';
 import 'package:halo_rumah_flutter/UnitPrice/UnitPricePage.dart';
 import 'package:halo_rumah_flutter/Other/OtherPage.dart';
+import 'package:halo_rumah_flutter/Menu/SocialMedia.dart';
+import 'package:halo_rumah_flutter/Menu/AboutUs.dart';
 
 void main() => runApp(MyApp());
 
@@ -78,7 +80,6 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      // Gunakan SplashScreen jika _showSplashScreen adalah true, jika tidak, gunakan halaman utama
       home: _showSplashScreen
           ? SplashScreen(
               isLoggedIn: _isLoggedIn,
@@ -110,6 +111,10 @@ class _MyAppState extends State<MyApp> {
             MaterialBangunanPage(username: _loggedInUsername),
         '/UnitPrice': (context) => UnitPrice(username: _loggedInUsername),
         '/Other': (context) => OtherPage(username: _loggedInUsername),
+        '/SocialMedia': (context) =>
+            SocialMediaPage(username: _loggedInUsername),
+        '/AboutUs': (context) =>
+            AboutUsPage(username: _loggedInUsername),
       },
     );
   }

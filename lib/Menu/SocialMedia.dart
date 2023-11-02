@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:io';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
-class CustomConsultationTile extends StatelessWidget {
+class CustomSosmedTile extends StatelessWidget {
   final String name;
-  final String phoneNumber;
-  final String avatarPath;
-  final VoidCallback? onTap; 
+  final String SosmedName;
+  final IconData iconData;
+  final VoidCallback onTap;
 
-  CustomConsultationTile({
+  CustomSosmedTile({
     required this.name,
-    required this.phoneNumber,
-    required this.avatarPath,
-    this.onTap, 
+    required this.SosmedName,
+    required this.iconData,
+    required this.onTap,
   });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTap, 
+      onTap: onTap,
       child: Container(
         margin: EdgeInsets.symmetric(vertical: 8.0),
         decoration: BoxDecoration(
@@ -42,7 +42,10 @@ class CustomConsultationTile extends StatelessWidget {
             leading: CircleAvatar(
               radius: 32,
               backgroundColor: Colors.blue,
-              backgroundImage: AssetImage(avatarPath),
+              child: Icon(
+                iconData,
+                color: Colors.white,
+              ),
             ),
             title: Row(
               children: [
@@ -69,7 +72,7 @@ class CustomConsultationTile extends StatelessWidget {
             subtitle: Row(
               children: [
                 Icon(
-                  Icons.phone,
+                  Icons.alternate_email,
                   color: Colors.blue,
                   size: 18.0,
                 ),
@@ -77,7 +80,7 @@ class CustomConsultationTile extends StatelessWidget {
                 Padding(
                   padding: const EdgeInsets.only(right: 8.0),
                   child: Text(
-                    phoneNumber,
+                    SosmedName,
                     style: TextStyle(
                       fontSize: 14.0,
                     ),
@@ -92,60 +95,39 @@ class CustomConsultationTile extends StatelessWidget {
   }
 }
 
-class ConsultationPage extends StatefulWidget {
+class SocialMediaPage extends StatelessWidget {
   final String username;
 
-  ConsultationPage({required this.username});
+  SocialMediaPage({required this.username});
 
-  @override
-  State<ConsultationPage> createState() => _ConsultationPageState();
-}
-
-class _ConsultationPageState extends State<ConsultationPage> {
-  void launchWhatsApp({
-    required String phone,
-    required String message,
-  }) async {
-    String url() {
-      if (Platform.isAndroid) {
-        // add the [https]
-        return "https://wa.me/$phone/?text=${Uri.parse(message)}"; // new line
-      } else {
-        // add the [https]
-        return "https://api.whatsapp.com/send?phone=$phone=${Uri.parse(message)}"; // new line
-      }
-    }
-
-    if (await canLaunch(url())) {
-      await launch(url());
+  void launchSocialMedia(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
     } else {
-      throw 'Could not launch ${url()}';
+      throw 'Could not launch $url';
     }
   }
 
-  void handleConsultationItemClick({
-    required String phone,
-    required String message,
-  }) async {
-    launchWhatsApp(phone: phone, message: message);
-  }
-
-  final List<Map<String, dynamic>> consultationList = [
+  final List<Map<String, dynamic>> socialMediaList = [
     {
-      'name': 'Amar Rizqi Afdholy, S.T., M.T.',
-      'phoneNumber': '+628115122771',
-      'avatarPath': 'assets/images/Amar.jpg',
+      'name': 'Instagram',
+      'SosmedName': 'halorumah.pkmk',
+      'iconData': FontAwesomeIcons.instagram,
+      'url': 'https://instagram.com/halorumah.pkmk?igshid=OGQ5ZDc2ODk2ZA==',
     },
     {
-      'name': 'Komang Ayu Laksmi H.S., S.T.,M.Ars.',
-      'phoneNumber': '+6287860199675',
-      'avatarPath': 'assets/images/Ayu.jpg',
+      'name': 'TikTok',
+      'SosmedName': 'halo.rumah',
+      'iconData': FontAwesomeIcons.tiktok,
+      'url': 'https://www.tiktok.com/@halo.rumah?_t=8gTZJM0qVBC&_r=1',
     },
     {
-      'name': 'Hadi Surya Wibawanto Sunarwadi, ST., MT, IPP.',
-      'phoneNumber': '+6281252034740',
-      'avatarPath': 'assets/images/Hadi.jpg',
-    }
+      'name': 'Facebook',
+      'SosmedName': 'Halo Rumah',
+      'iconData': FontAwesomeIcons.facebook,
+      'url':
+          'https://www.facebook.com/profile.php?id=100093573952095&mibextid=ZbWKwL',
+    },
   ];
 
   @override
@@ -174,7 +156,7 @@ class _ConsultationPageState extends State<ConsultationPage> {
             children: [
               AppBar(
                 title: Text(
-                  "Consultation Page",
+                  "Social Media Page",
                   style: TextStyle(
                     fontFamily: 'Inter',
                     fontSize: 16,
@@ -187,23 +169,20 @@ class _ConsultationPageState extends State<ConsultationPage> {
                 backgroundColor: Colors.transparent,
                 elevation: 0.0,
               ),
-              // Isi konten konsultasi Anda di sini
               Expanded(
                 child: Padding(
                   padding: EdgeInsets.only(right: 24, left: 24),
                   child: ListView.builder(
-                    itemCount: consultationList.length,
+                    itemCount: socialMediaList.length,
                     itemBuilder: (context, index) {
-                      final consultation = consultationList[index];
-                      return CustomConsultationTile(
-                        name: consultation['name'] ?? '',
-                        phoneNumber: consultation['phoneNumber'] ?? '',
-                        avatarPath: consultation['avatarPath'] ?? '',
+                      final sosmed = socialMediaList[index];
+                      return CustomSosmedTile(
+                        name: sosmed['name'] ?? '',
+                        SosmedName: sosmed['SosmedName'] ?? '',
+                        iconData:
+                            sosmed['iconData'] ?? FontAwesomeIcons.question,
                         onTap: () {
-                          handleConsultationItemClick(
-                            phone: consultation['phoneNumber'] ?? '',
-                            message: 'Hello', // Pesan yang ingin Anda kirim
-                          );
+                          launchSocialMedia(sosmed['url']);
                         },
                       );
                     },

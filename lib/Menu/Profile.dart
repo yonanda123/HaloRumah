@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:halo_rumah_flutter/database_helper.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:restart_app/restart_app.dart';
@@ -46,6 +48,34 @@ class _ProfileState extends State<Profile> {
   //Update the user
   final DatabaseHelper _databaseHelper = DatabaseHelper.instance;
   List<Map<String, dynamic>> users = [];
+  bool isHelpExpanded = false;
+
+  void launchUrl(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
+  }
+
+  void launchWhatsApp({
+    required String phone,
+    required String message,
+  }) async {
+    String url() {
+      if (Platform.isAndroid) {
+        return "https://wa.me/$phone/?text=${Uri.parse(message)}"; // new line
+      } else {
+        return "https://api.whatsapp.com/send?phone=$phone=${Uri.parse(message)}"; // new line
+      }
+    }
+
+    if (await canLaunch(url())) {
+      await launch(url());
+    } else {
+      throw 'Could not launch ${url()}';
+    }
+  }
 
   Future<void> _loadUsers() async {
     final List<Map<String, dynamic>> userList =
@@ -180,6 +210,7 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
+    double containerHeight = isHelpExpanded ? 420.0 : 320.0;
     return SingleChildScrollView(
       child: Center(
         child: Column(
@@ -335,44 +366,101 @@ class _ProfileState extends State<Profile> {
               ),
             ),
             Container(
-              width: double.infinity, // Lebar sesuaikan dengan layar
-              height: 100.0, // Tinggi card
-              margin: EdgeInsets.only(right: 32.0, left: 32),
+              width: double.infinity,
+              height: containerHeight,
+              margin: EdgeInsets.only(right: 32.0, left: 32, bottom: 32),
               decoration: BoxDecoration(
                 color: Colors.white,
-                borderRadius: BorderRadius.circular(16.0), // Radius sudut card
+                borderRadius: BorderRadius.circular(16.0),
                 boxShadow: [
                   BoxShadow(
                     color: Colors.grey.withOpacity(0.5),
                     spreadRadius: 5,
                     blurRadius: 7,
-                    offset: Offset(0, 3), // Offset bayangan
+                    offset: Offset(0, 3),
                   ),
                 ],
               ),
               child: ListView(
                 children: [
-                  // ListTile(
-                  //   title: Text('About'),
-                  //   trailing: Icon(Icons.arrow_forward_ios),
-                  //   leading: Icon(
-                  //     Icons.perm_device_information_sharp,
-                  //     color: Colors.black,
-                  //   ),
-                  //   onTap: () {
-                  //     // Aksi saat list "About" ditekan
-                  //     // Anda dapat menambahkan logika sesuai kebutuhan
-                  //   },
-                  // ),
-                  // const Divider(
-                  //   thickness: 0.1,
-                  //   indent: 15,
-                  //   endIndent: 15,
-                  //   color: Colors.black,
-                  // ),
+                  ListTile(
+                    title: Text('About Us'),
+                    trailing: Icon(Icons.keyboard_arrow_right_outlined),
+                    leading: FaIcon(
+                      FontAwesomeIcons.cameraRetro,
+                      color: Colors.black,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        Navigator.pushNamed(context, '/AboutUs');
+                      });
+                    },
+                  ),
+                  Divider(
+                    thickness: 0.1,
+                    indent: 15,
+                    endIndent: 15,
+                    color: Colors.black,
+                  ),
+                  ListTile(
+                    title: Text('Social Media'),
+                    trailing: Icon(Icons.keyboard_arrow_right_outlined),
+                    leading: FaIcon(
+                      FontAwesomeIcons.cameraRetro,
+                      color: Colors.black,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        Navigator.pushNamed(context, '/SocialMedia');
+                      });
+                    },
+                  ),
+                  Divider(
+                    thickness: 0.1,
+                    indent: 15,
+                    endIndent: 15,
+                    color: Colors.black,
+                  ),
+                  ListTile(
+                    title: Text('Help'),
+                    trailing: Icon(
+                      isHelpExpanded
+                          ? Icons.keyboard_arrow_down
+                          : Icons.keyboard_arrow_right_outlined,
+                    ),
+                    leading: Icon(
+                      Icons.contact_support,
+                      color: Colors.black,
+                    ),
+                    onTap: () {
+                      setState(() {
+                        isHelpExpanded = !isHelpExpanded;
+                      });
+                    },
+                  ),
+                  if (isHelpExpanded)
+                    Column(
+                      children: [
+                        SublistItem(Icons.info, 'App Tutorial', () {
+                          launchUrl(
+                              'https://youtu.be/W7Jc7D-bcZI?si=mGctA9TH1bQS0oUL');
+                        }),
+                        SublistItem(Icons.phone, 'Contact Us', () {
+                          launchWhatsApp(
+                              phone: '+6281357795007',
+                              message: 'Halo Saya Perlu Bantuan !');
+                        }),
+                      ],
+                    ),
+                  Divider(
+                    thickness: 0.1,
+                    indent: 15,
+                    endIndent: 15,
+                    color: Colors.black,
+                  ),
                   ListTile(
                     title: Text('Logout'),
-                    trailing: Icon(Icons.arrow_forward_ios),
+                    trailing: Icon(Icons.keyboard_arrow_right_outlined),
                     leading: Icon(
                       Icons.logout,
                       color: Colors.black,
@@ -394,5 +482,25 @@ class _ProfileState extends State<Profile> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     await prefs.clear();
     Navigator.pushReplacementNamed(context, '/login');
+  }
+}
+
+class SublistItem extends StatelessWidget {
+  final IconData iconData;
+  final String title;
+  final VoidCallback onTap;
+
+  SublistItem(this.iconData, this.title, this.onTap);
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile(
+      leading: Icon(
+        iconData,
+        color: Colors.black,
+      ),
+      title: Text(title),
+      onTap: onTap,
+    );
   }
 }
