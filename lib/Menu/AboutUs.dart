@@ -36,7 +36,7 @@ class _AboutUsPageState extends State<AboutUsPage> {
             children: [
               AppBar(
                 title: Text(
-                  "Social Media Page",
+                  "About Us",
                   style: TextStyle(
                     fontFamily: 'Inter',
                     fontSize: 16,
@@ -87,9 +87,34 @@ class _AboutUsPageState extends State<AboutUsPage> {
                         ),
                         SizedBox(height: 16),
                         Text(
-                          '',
+                          "Hadi Surya Wibawanto S, ST., MT, IPP",
                           style: TextStyle(fontSize: 16),
-                          textAlign: TextAlign.justify, // Justify the text
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          "I Putu Sugiantara",
+                          style: TextStyle(fontSize: 16),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          "Firnas Naufal",
+                          style: TextStyle(fontSize: 16),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          "Heickal M. Aqil Biladt",
+                          style: TextStyle(fontSize: 16),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          "Emmily Sisilia M.P.S.",
+                          style: TextStyle(fontSize: 16),
+                          textAlign: TextAlign.left,
+                        ),
+                        Text(
+                          "I Kadek Riski D. P.",
+                          style: TextStyle(fontSize: 16),
+                          textAlign: TextAlign.left,
                         ),
                       ],
                     ),

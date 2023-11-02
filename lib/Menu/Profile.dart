@@ -386,8 +386,8 @@ class _ProfileState extends State<Profile> {
                   ListTile(
                     title: Text('About Us'),
                     trailing: Icon(Icons.keyboard_arrow_right_outlined),
-                    leading: FaIcon(
-                      FontAwesomeIcons.cameraRetro,
+                    leading: Icon(
+                      Icons.groups_2,
                       color: Colors.black,
                     ),
                     onTap: () {

@@ -21,8 +21,9 @@ class _HomePageState extends State<HomePage> {
     Image.asset('assets/images/House1.jpg'),
     Image.asset('assets/images/House2.jpg'),
     Image.asset('assets/images/House3.jpg'),
-    Image.asset('assets/images/House4.jpeg'),
-    Image.asset('assets/images/House5.jpg'),
+    Image.asset('assets/images/House6.jpg'),
+    Image.asset('assets/images/House7.jpg'),
+    Image.asset('assets/images/House8.jpg'),
   ];
 
   int _curent = 0;
@@ -443,7 +444,7 @@ class _HomePageState extends State<HomePage> {
                 options: CarouselOptions(
                   autoPlay: true,
                   enlargeCenterPage: true,
-                  aspectRatio: 1.8,
+                  aspectRatio: 1.5,
                   onPageChanged: (index, reason) {
                     setState(
                       () {
