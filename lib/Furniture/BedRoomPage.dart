@@ -108,7 +108,7 @@ class _BedRoomPageState extends State<BedRoomPage> {
           Image.asset(
             item['image'],
             width: double.infinity,
-            height: 184, // Sesuaikan tinggi gambar sesuai kebutuhan
+            height: 184, 
             fit: BoxFit.cover,
           ),
         ],

@@ -86,7 +86,7 @@ class _LoginPageState extends State<LoginPage> {
         fit: StackFit.expand,
         children: [
           Image.asset(
-            'assets/images/BG.png', // Ganti dengan path gambar BG.PNG
+            'assets/images/BG.png',
             fit: BoxFit.cover,
           ),
           SingleChildScrollView(
@@ -98,30 +98,12 @@ class _LoginPageState extends State<LoginPage> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(height: 56.0),
-                    // Gambar RUMAH.PNG
-                    Center(
-                      child: Image.asset(
-                        'assets/images/RUMAH.png',
-                        height: 100,
-                        width: 100,
-                      ),
-                    ),
-                    SizedBox(height: 16.0),
+                    SizedBox(height: 100.0),
                     // Text "Selamat Datang"
-                    Text(
-                      'Selamat Datang',
-                      style: TextStyle(
-                        color: Color(0xFF000000),
-                        fontFamily: 'Inter',
-                        fontSize: 14,
-                        fontWeight: FontWeight.w500,
-                      ),
-                      textAlign: TextAlign.center,
-                    ),
+
                     SizedBox(height: 8.0),
-                    // Text "HALO RUMAH"
                     Text(
-                      'HALO RUMAH',
+                      'SELAMAT DATANG',
                       style: TextStyle(
                         color: Color(0xFF000000),
                         fontFamily: 'Inter',

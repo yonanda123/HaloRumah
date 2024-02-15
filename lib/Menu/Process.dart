@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:halo_rumah_flutter/CustomDialog.dart';
+import 'package:halo_rumah_flutter/database_helper.dart';
 
 class Process extends StatefulWidget {
   const Process({super.key});
@@ -32,6 +33,19 @@ class _ProcessState extends State<Process> {
   final TextEditingController panjangBangunanController =
       TextEditingController();
   final TextEditingController lebarBangunanController = TextEditingController();
+
+  Future<List<Map<String, dynamic>>> fetchAhspData() async {
+    // Di sini Anda akan mengambil data dari tabel AHSP, misalnya menggunakan database_helper
+    // Gantilah bagian berikut ini dengan cara Anda untuk mengambil data dari tabel AHSP
+    try {
+      final List<Map<String, dynamic>> data =
+          await DatabaseHelper.instance.getAHSPs();
+      return data;
+    } catch (e) {
+      print("Error fetching AHSP data: $e");
+      throw e;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -121,22 +135,54 @@ class _ProcessState extends State<Process> {
               showDialog(
                 context: context,
                 builder: (BuildContext context) {
-                  return CustomDialog(
-                    title: "Detail Pembangunan",
-                    resultLivingRoom: resultLivingRoom,
-                    resultBedRoom: resultBedRoom,
-                    resultMainBedRoom: resultMainBedRoom,
-                    resultBathRoom: resultBathRoom,
-                    resultKitchen: resultKitchen,
-                    resultLuasBangunan: _luasBangunan,
-                    resultRABLivingRoom: _currentHorizontalIntValueLivingRoom,
-                    resultRABBedRoom: _currentHorizontalIntValueBedRoom,
-                    resultRABMainBedRoom: _currentHorizontalIntValueMainBedRoom,
-                    resultRABBathRoom: _currentHorizontalIntValueBathRoom,
-                    resultRABKitchen: _currentHorizontalIntValueKitchen,
-                    luasBangunan: _luasBangunanReal,
-                    onPressed: () {
-                      Navigator.of(context).pop();
+                  // Gunakan FutureBuilder untuk menunggu hasil dari fetchAhspData
+                  return FutureBuilder(
+                    future: fetchAhspData(),
+                    builder: (BuildContext context,
+                        AsyncSnapshot<List<Map<String, dynamic>>> snapshot) {
+                      if (snapshot.connectionState == ConnectionState.waiting) {
+                        // Menampilkan indikator loading jika masih menunggu hasil
+                        return CircularProgressIndicator();
+                      } else if (snapshot.hasError) {
+                        // Menampilkan pesan kesalahan jika terjadi kesalahan
+                        return AlertDialog(
+                          title: Text("Error"),
+                          content: Text("Failed to fetch AHSP data."),
+                          actions: [
+                            TextButton(
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                              child: Text("OK"),
+                            ),
+                          ],
+                        );
+                      } else {
+                        // Jika data berhasil diambil, lanjutkan dengan membangun dialog
+                        final List<Map<String, dynamic>> ahspData =
+                            snapshot.data!;
+                        return CustomDialog(
+                          title: "Detail Pembangunan",
+                          areaLivingRoom: resultLivingRoom,
+                          areaBedRoom: resultBedRoom,
+                          areaMainBedRoom: resultMainBedRoom,
+                          areaBathRoom: resultBathRoom,
+                          areaKitchen: resultKitchen,
+                          areaLuasBangunan: _luasBangunan,
+                          amountLivingRoom:
+                              _currentHorizontalIntValueLivingRoom,
+                          amountBedRoom: _currentHorizontalIntValueBedRoom,
+                          amountMainBedRoom:
+                              _currentHorizontalIntValueMainBedRoom,
+                          amountBathRoom: _currentHorizontalIntValueBathRoom,
+                          amountKitchen: _currentHorizontalIntValueKitchen,
+                          luasBangunan: _luasBangunanReal,
+                          onPressed: () {
+                            Navigator.of(context).pop();
+                          },
+                          ahspData: ahspData,
+                        );
+                      }
                     },
                   );
                 },
@@ -207,7 +253,7 @@ class _ProcessState extends State<Process> {
                     ),
                   ),
                 ),
-                SizedBox(height: 16.0), // Jarak antar TextField
+                SizedBox(height: 16.0),
                 TextField(
                   controller: lebarTanahController,
                   keyboardType: TextInputType.number,
@@ -227,7 +273,7 @@ class _ProcessState extends State<Process> {
                     ),
                   ),
                 ),
-                SizedBox(height: 24.0), // Jarak antar TextField
+                SizedBox(height: 24.0),
                 Align(
                   alignment: Alignment.centerLeft,
                   child: Text(
@@ -263,7 +309,7 @@ class _ProcessState extends State<Process> {
                     ),
                   ),
                 ),
-                SizedBox(height: 16.0), // Jarak antar TextField
+                SizedBox(height: 16.0),
                 TextField(
                   controller: lebarBangunanController,
                   keyboardType: TextInputType.number,

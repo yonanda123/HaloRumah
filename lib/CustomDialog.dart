@@ -1,66 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:halo_rumah_flutter/database_helper.dart';
 
 class CustomDialog extends StatelessWidget {
   final String title;
   final VoidCallback onPressed;
-  final double resultLivingRoom;
-  final double resultBedRoom;
-  final double resultMainBedRoom;
-  final double resultBathRoom;
-  final double resultKitchen;
-  final double resultLuasBangunan;
+  final List<Map<String, dynamic>> ahspData;
+  final double areaLivingRoom;
+  final double areaBedRoom;
+  final double areaMainBedRoom;
+  final double areaBathRoom;
+  final double areaKitchen;
+  final double areaLuasBangunan;
   final double luasBangunan;
-  final int resultRABLivingRoom;
-  final int resultRABMainBedRoom;
-  final int resultRABBedRoom;
-  final int resultRABKitchen;
-  final int resultRABBathRoom;
+  final int amountLivingRoom;
+  final int amountMainBedRoom;
+  final int amountBedRoom;
+  final int amountKitchen;
+  final int amountBathRoom;
 
   CustomDialog({
     required this.title,
     required this.onPressed,
-    required this.resultLivingRoom,
-    required this.resultBedRoom,
-    required this.resultMainBedRoom,
-    required this.resultBathRoom,
-    required this.resultKitchen,
-    required this.resultLuasBangunan,
+    required this.ahspData,
+    required this.areaLivingRoom,
+    required this.areaBedRoom,
+    required this.areaMainBedRoom,
+    required this.areaBathRoom,
+    required this.areaKitchen,
+    required this.areaLuasBangunan,
     required this.luasBangunan,
-    required this.resultRABLivingRoom,
-    required this.resultRABMainBedRoom,
-    required this.resultRABBedRoom,
-    required this.resultRABKitchen,
-    required this.resultRABBathRoom,
+    required this.amountLivingRoom,
+    required this.amountMainBedRoom,
+    required this.amountBedRoom,
+    required this.amountKitchen,
+    required this.amountBathRoom,
   });
-
-  // void launchWhatsApp({
-  //   required String phone,
-  //   required String message,
-  // }) async {
-  //   String url() {
-  //     if (Platform.isAndroid) {
-  //       // add the [https]
-  //       return "https://wa.me/$phone/?text=${Uri.parse(message)}"; // new line
-  //     } else {
-  //       // add the [https]
-  //       return "https://api.whatsapp.com/send?phone=$phone=${Uri.parse(message)}"; // new line
-  //     }
-  //   }
-
-  //   if (await canLaunch(url())) {
-  //     await launch(url());
-  //   } else {
-  //     throw 'Could not launch ${url()}';
-  //   }
-  // }
 
   void sendLongWhatsAppMessage({
     required String phone,
     required String message,
   }) async {
-    final maxLength = 4096; // Panjang maksimum pesan yang dapat dikirim
+    final maxLength = 4096;
 
     while (message.length > 0) {
       final part = message.substring(0, maxLength);
@@ -104,25 +86,40 @@ class CustomDialog extends StatelessWidget {
   }
 
   contentBox(context) {
-    final totalCost = (resultRABLivingRoom * 75731499.04) +
-        (resultRABBedRoom * 76162212.76) +
-        (resultRABMainBedRoom * 94721113.18) +
-        (resultRABBathRoom * 79072268.08) +
-        (resultRABKitchen * 76920471.98) +
+    final ruangTamuPrice = ahspData
+        .firstWhere((ahsp) => ahsp['name'] == 'Ruang Tamu')['price'] as double;
+    final kamarPrice = ahspData
+        .firstWhere((ahsp) => ahsp['name'] == 'Kamar')['price'] as double;
+    final kamarUtamaPrice = ahspData
+        .firstWhere((ahsp) => ahsp['name'] == 'Kamar Utama')['price'] as double;
+    final kamarMandiPrice = ahspData
+        .firstWhere((ahsp) => ahsp['name'] == 'Kamar Mandi')['price'] as double;
+    final dapurPrice = ahspData
+        .firstWhere((ahsp) => ahsp['name'] == 'Dapur')['price'] as double;
+    final atapPrice = ahspData
+        .firstWhere((ahsp) => ahsp['name'] == 'Atap')['price'] as double;
+    final totalCost = (amountLivingRoom * 75731499.04) +
+        (amountBedRoom * 76162212.76) +
+        (amountMainBedRoom * 94721113.18) +
+        (amountBathRoom * 79072268.08) +
+        (amountKitchen * 76920471.98) +
         (luasBangunan * 349056);
 
     final formatter = NumberFormat.currency(locale: 'id', symbol: 'Rp ');
-    final formattedTotalCost = formatter.format(totalCost);
+    final TotalCost = formatter.format(totalCost);
+
+    final double RABLivingRoom = amountLivingRoom * ruangTamuPrice;
+    final double RABBedRoom = amountBedRoom * kamarPrice;
+    final double RABMainBedRoom = amountMainBedRoom * kamarUtamaPrice;
+    final double RABBathRoom = amountBathRoom * kamarMandiPrice;
+    final double RABKitchen = amountKitchen * dapurPrice;
+    final double RABLuasBangunan = luasBangunan * atapPrice;
 
     return SingleChildScrollView(
       child: Stack(
         children: <Widget>[
           Container(
-            padding: EdgeInsets.only(
-                top: 48,
-                left: 24,
-                right: 24,
-                bottom: 24), // Use consistent padding
+            padding: EdgeInsets.only(top: 48, left: 24, right: 24, bottom: 24),
             margin: EdgeInsets.only(top: 66.0),
             decoration: BoxDecoration(
               shape: BoxShape.rectangle,
@@ -138,8 +135,7 @@ class CustomDialog extends StatelessWidget {
             ),
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              crossAxisAlignment:
-                  CrossAxisAlignment.start, // Align text to the left
+              crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
                   title,
@@ -147,7 +143,7 @@ class CustomDialog extends StatelessWidget {
                     fontSize: 24.0,
                     fontWeight: FontWeight.w700,
                   ),
-                  textAlign: TextAlign.center, // Center title
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 24.0),
                 Text(
@@ -156,32 +152,32 @@ class CustomDialog extends StatelessWidget {
                     fontSize: 20.0,
                     fontWeight: FontWeight.w500,
                   ),
-                  textAlign: TextAlign.center, // Center title
+                  textAlign: TextAlign.center,
                 ),
                 SizedBox(height: 10.0),
                 // Menampilkan daftar detail
                 Text(
-                  'Ruang Tamu : $resultLivingRoom m²',
+                  'Ruang Tamu : $areaLivingRoom m²',
                   style: TextStyle(fontSize: 16.0, fontFamily: 'inter'),
                 ),
                 Text(
-                  'Kamar : $resultBedRoom m²',
+                  'Kamar : $areaBedRoom m²',
                   style: TextStyle(fontSize: 16.0, fontFamily: 'inter'),
                 ),
                 Text(
-                  'Kamar Utama : $resultMainBedRoom m²',
+                  'Kamar Utama : $areaMainBedRoom m²',
                   style: TextStyle(fontSize: 16.0, fontFamily: 'inter'),
                 ),
                 Text(
-                  'Kamar Mandi : $resultBathRoom m²',
+                  'Kamar Mandi : $areaBathRoom m²',
                   style: TextStyle(fontSize: 16.0, fontFamily: 'inter'),
                 ),
                 Text(
-                  'Dapur : $resultKitchen m²',
+                  'Dapur : $areaKitchen m²',
                   style: TextStyle(fontSize: 16.0, fontFamily: 'inter'),
                 ),
                 Text(
-                  'Luas Halaman : $resultLuasBangunan m²',
+                  'Luas Halaman : $areaLuasBangunan m²',
                   style: TextStyle(fontSize: 16.0, fontFamily: 'inter'),
                 ),
                 Text(
@@ -202,27 +198,27 @@ class CustomDialog extends StatelessWidget {
                 SizedBox(height: 10.0),
                 buildText(
                   'Ruang Tamu',
-                  resultRABLivingRoom * 75731499.04,
+                  RABLivingRoom,
                 ),
                 buildText(
                   'Kamar',
-                  resultRABBedRoom * 76162212.76,
+                  RABBedRoom,
                 ),
                 buildText(
                   'Kamar Utama',
-                  resultRABMainBedRoom * 94721113.18,
+                  RABMainBedRoom,
                 ),
                 buildText(
                   'Kamar Mandi',
-                  resultRABBathRoom * 79072268.08,
+                  RABBathRoom,
                 ),
                 buildText(
                   'Dapur',
-                  resultRABKitchen * 76920471.98,
+                  RABKitchen,
                 ),
                 buildText(
                   'Atap',
-                  luasBangunan * 349056,
+                  RABLuasBangunan,
                 ),
                 SizedBox(height: 8.0),
                 Divider(thickness: 2),
@@ -237,7 +233,7 @@ class CustomDialog extends StatelessWidget {
                 ),
                 SizedBox(height: 10.0),
                 Text(
-                  '$formattedTotalCost',
+                  '$TotalCost',
                   style: TextStyle(fontSize: 16.0, fontFamily: 'inter'),
                 ),
                 SizedBox(height: 24.0),
@@ -257,7 +253,7 @@ class CustomDialog extends StatelessWidget {
                           launchWhatsApp(
                               phone: '+6281357795007',
                               message:
-                                  'Luas m²\n\nRuang Tamu: $resultLivingRoom m²\nKamar : $resultBedRoom\nKamar Utama : $resultMainBedRoom m²\nKamar Mandi : $resultBathRoom m²\nDapur : $resultKitchen m²\nLuas Halaman : $resultLuasBangunan m²\n\n\nRencana Anggaran Biaya\n\nRuang Tamu: Rp. ${resultRABLivingRoom * 75731499.04} \n Kamar : Rp. ${resultRABBedRoom * 76162212.76}\nKamar Utama: Rp. ${resultRABMainBedRoom * 94721113.18}\nKamar Mandi : Rp. ${resultRABBathRoom * 79072268.08}\nDapur : Rp. ${resultRABKitchen * 76920471.98}\nAtap : Rp. ${luasBangunan * 349056}\n\nTotal Anggaran : $formattedTotalCost');
+                                  'Luas m²\n\nRuang Tamu: $areaLivingRoom m²\nKamar : $areaBedRoom\nKamar Utama : $areaMainBedRoom m²\nKamar Mandi : $areaBathRoom m²\nDapur : $areaKitchen m²\nLuas Halaman : $areaLuasBangunan m²\n\n\nRencana Anggaran Biaya\n\nRuang Tamu: Rp. ${amountLivingRoom * ruangTamuPrice} \n Kamar : Rp. ${amountBedRoom * kamarPrice}\nKamar Utama: Rp. ${amountMainBedRoom * kamarUtamaPrice}\nKamar Mandi : Rp. ${amountBathRoom * kamarMandiPrice}\nDapur : Rp. ${amountKitchen * dapurPrice}\nAtap : Rp. ${luasBangunan * atapPrice}\n\nTotal Anggaran : $TotalCost');
                         },
                         child: Text(
                           'Tanya Ahli',
@@ -275,7 +271,33 @@ class CustomDialog extends StatelessWidget {
                           textStyle: TextStyle(
                               fontSize: 24, fontWeight: FontWeight.w500),
                         ),
-                        onPressed: onPressed,
+                        onPressed: () async {
+                          final Map<String, dynamic> reportData = {
+                            'date': DateTime.now().toIso8601String(),
+                            'areaLivingRoom': areaLivingRoom,
+                            'areaBedRoom': areaBedRoom,
+                            'areaMainBedRoom': areaMainBedRoom,
+                            'areaBathRoom': areaBathRoom,
+                            'areaKitchen': areaKitchen,
+                            'areaYard': areaLuasBangunan,
+                            'areaRoof': luasBangunan,
+                            'RABLivingRoom': RABLivingRoom,
+                            'RABBedRoom': RABBedRoom,
+                            'RABMainBedRoom': RABMainBedRoom,
+                            'RABBathRoom': RABBathRoom,
+                            'RABKitchen': RABKitchen,
+                            'RABRoof': RABLuasBangunan,
+                            'TotalCost': totalCost,
+                          };
+                          try {
+                            await DatabaseHelper.instance
+                                .insertReport(reportData);
+                            print('Data tersimpan dalam tabel report');
+                          } catch (e) {
+                            print('Gagal menyimpan data: $e');
+                          }
+                          onPressed();
+                        },
                         child: Text(
                           'OK',
                           style: TextStyle(fontSize: 18.0),

@@ -40,6 +40,35 @@ class DatabaseHelper {
     )
   ''');
 
+    await db.execute('''
+    CREATE TABLE AHSP(
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT,
+      price REAL
+    )
+  ''');
+
+    await db.execute('''
+    CREATE TABLE report(
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      date TIMESTAMP,
+      areaLivingRoom REAL,
+      areaBedRoom REAL,
+      areaMainBedRoom REAL,
+      areaBathRoom REAL,
+      areaKitchen REAL,
+      areaYard REAL,
+      areaRoof REAL,
+      RABLivingRoom REAL,
+      RABBedRoom REAL,
+      RABMainBedRoom REAL,
+      RABBathRoom REAL,
+      RABKitchen REAL,
+      RABRoof REAL,
+      TotalCost REAL
+    )
+  ''');
+
     final List<Map<String, dynamic>> usersToInsert = [
       {
         'username': 'admin',
@@ -59,358 +88,6 @@ class DatabaseHelper {
         'image': 'default.png',
         'phone': '00000000000'
       },
-      {
-        'username': 'halorumah02',
-        'password': 'b48fddc5eae',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah03',
-        'password': '9d2d76e951e',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah04',
-        'password': '2cf07f667a3',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah05',
-        'password': '0d139645fcf',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah06',
-        'password': '11057d1ff7d',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah07',
-        'password': 'f8158c2c89f',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah08',
-        'password': '566ce0a5187',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah09',
-        'password': 'f8e6878ed6e',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah10',
-        'password': '5efb773342d',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah11',
-        'password': '622026298cc',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah12',
-        'password': '40592eafbec',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah13',
-        'password': '62a1c95f1ea',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah14',
-        'password': 'e56b575797b',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah15',
-        'password': '35e43e5d088',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah16',
-        'password': '22d1c9eb93b',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah17',
-        'password': 'd491b208fe7',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah18',
-        'password': '5c5a5b29af0',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah19',
-        'password': 'e45517127bf',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah20',
-        'password': '03c676ed5a0',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah21',
-        'password': '4a5205a6a05',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah22',
-        'password': '76b9554b4fc',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah23',
-        'password': '32ac155a9f7',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah24',
-        'password': '08690b54956',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah25',
-        'password': '537eab04f2d',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah26',
-        'password': '61b176719cb',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah27',
-        'password': '7fa2270c33d',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah28',
-        'password': '77b269f7df5',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah29',
-        'password': '3ba0110b4ed',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah30',
-        'password': '8f6e8598b22',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah31',
-        'password': '963ae193355',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah32',
-        'password': '25dd2c35d62',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah33',
-        'password': 'f7808567206',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah34',
-        'password': '9f2d37efd0d',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah35',
-        'password': 'cfac21b1c15',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah36',
-        'password': '68775ab37f5',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah37',
-        'password': '2c28f5c03a0',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah38',
-        'password': 'a1d686cd50d',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah39',
-        'password': 'a573e6340d2',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      {
-        'username': 'halorumah40',
-        'password': '2773d7fe483',
-        'role': 2,
-        'name': 'unknown',
-        'address': 'unknown',
-        'image': 'default.png',
-        'phone': '00000000000'
-      },
-      // Tambahkan data pengguna lainnya sesuai kebutuhan
     ];
 
     Batch batch = db.batch();
@@ -418,6 +95,21 @@ class DatabaseHelper {
       batch.insert('users', user);
     }
     await batch.commit();
+
+    final List<Map<String, dynamic>> ahspToInsert = [
+      {'name': 'Ruang Tamu', 'price': 75731499.04},
+      {'name': 'Kamar', 'price': 76162212.76},
+      {'name': 'Kamar Utama', 'price': 94721113.18},
+      {'name': 'Kamar Mandi', 'price': 79072268.08},
+      {'name': 'Dapur', 'price': 76920471.98},
+      {'name': 'Atap', 'price': 349056},
+    ];
+
+    Batch ahspBatch = db.batch();
+    for (final ahsp in ahspToInsert) {
+      ahspBatch.insert('AHSP', ahsp);
+    }
+    await ahspBatch.commit();
   }
 
   Future<List<Map<String, dynamic>>> getUsers() async {
@@ -448,5 +140,45 @@ class DatabaseHelper {
     } else {
       throw Exception('User not found');
     }
+  }
+
+  Future<int> insertAHSP(Map<String, dynamic> ahsp) async {
+    final db = await instance.database;
+    return await db.insert('AHSP', ahsp);
+  }
+
+  Future<int> updateAHSP(Map<String, dynamic> ahsp) async {
+    final db = await instance.database;
+    final int id = ahsp['id'];
+    return await db.update(
+      'AHSP',
+      ahsp,
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
+
+  Future<int> deleteAHSP(int id) async {
+    final db = await instance.database;
+    return await db.delete(
+      'AHSP',
+      where: 'id = ?',
+      whereArgs: [id],
+    );
+  }
+
+  Future<List<Map<String, dynamic>>> getAHSPs() async {
+    final db = await instance.database;
+    return await db.query('AHSP');
+  }
+
+  Future<int> insertReport(Map<String, dynamic> report) async {
+    final db = await instance.database;
+    return await db.insert('report', report);
+  }
+
+  Future<List<Map<String, dynamic>>> getReports() async {
+    final db = await instance.database;
+    return await db.query('report');
   }
 }

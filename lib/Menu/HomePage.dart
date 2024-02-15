@@ -138,39 +138,6 @@ class _HomePageState extends State<HomePage> {
                       ],
                     ),
                   ),
-                  Positioned(
-                    bottom: 20,
-                    right: 20,
-                    child: Stack(
-                      alignment: Alignment.center,
-                      children: <Widget>[
-                        Column(
-                          children: <Widget>[
-                            Image.asset(
-                              'assets/images/RUMAH.png',
-                              height: 80,
-                              width: 64,
-                            ), // Spasi antara gambar dan teks
-                          ],
-                        ),
-                        Positioned(
-                          bottom: 0,
-                          child: Text(
-                            'HALO RUMAH',
-                            style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: 'Inter',
-                              fontSize: 8.5,
-                              fontWeight: FontWeight.w600,
-                              fontStyle: FontStyle.normal,
-                              letterSpacing: 1.0,
-                            ),
-                            textAlign: TextAlign.center,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
                 ],
               ),
             ),
@@ -197,7 +164,7 @@ class _HomePageState extends State<HomePage> {
           ),
           SizedBox(height: 16),
           Padding(
-            padding: EdgeInsets.only(right: 16, left: 32),
+            padding: EdgeInsets.only(right: 24, left: 42),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
@@ -275,7 +242,7 @@ class _HomePageState extends State<HomePage> {
                   ],
                 ),
                 SizedBox(
-                  width: 10,
+                  width: 1,
                 ),
                 Column(
                   children: [
@@ -347,7 +314,7 @@ class _HomePageState extends State<HomePage> {
                         },
                       ),
                     ),
-                    SizedBox(height: 8), // Spasi antara Container dan teks
+                    SizedBox(height: 8),
                     Text(
                       'Material',
                       style: TextStyle(
@@ -411,7 +378,11 @@ class _HomePageState extends State<HomePage> {
                         color: Color.fromARGB(255, 216, 216, 216),
                       ),
                       child: IconButton(
-                        icon: const Icon(Icons.more_horiz),
+                        icon: Image.asset(
+                          'assets/images/report.png',
+                          width: 50,
+                          height: 50,
+                        ),
                         onPressed: () {
                           setState(() {
                             Navigator.pushNamed(context, '/Other');
@@ -419,14 +390,14 @@ class _HomePageState extends State<HomePage> {
                         },
                       ),
                     ),
-                    SizedBox(height: 8), // Spasi antara Container dan teks
+                    SizedBox(height: 8),
                     Text(
-                      'Other',
+                      'Report',
                       style: TextStyle(
                         fontFamily: 'Inter',
                         fontSize: 12,
                         fontWeight: FontWeight.w500,
-                        height: 15 / 12, // Line height / font size
+                        height: 15 / 12,
                         letterSpacing: 0,
                       ),
                     ),

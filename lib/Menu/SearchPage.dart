@@ -328,8 +328,6 @@ class _SearchPageState extends State<SearchPage> {
                       crossAxisCount: 2,
                       itemCount: categoryContent[selectedCategory]?.length ?? 0,
                       itemBuilder: (ctx, index) {
-                        final contentItem =
-                            categoryContent[selectedCategory]?[index] ?? '';
                         final imageUrl =
                             shuffledCategoryImages[selectedCategory]![index %
                                 shuffledCategoryImages[selectedCategory]!
