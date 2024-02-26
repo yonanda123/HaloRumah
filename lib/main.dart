@@ -3,7 +3,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:halo_rumah_flutter/shared_pref_helper.dart';
 import 'package:halo_rumah_flutter/login_page.dart';
 import 'package:halo_rumah_flutter/AdminDashboardPage.dart';
-import 'package:halo_rumah_flutter/UserDashboardPage.dart';
+import 'package:halo_rumah_flutter/Profile.dart';
 import 'package:halo_rumah_flutter/stepper_page.dart';
 import 'package:page_transition/page_transition.dart';
 import 'package:animated_splash_screen/animated_splash_screen.dart';
@@ -16,7 +16,7 @@ import 'package:halo_rumah_flutter/Furniture/BathRoomPage.dart';
 import 'package:halo_rumah_flutter/Furniture/BedRoomPage.dart';
 import 'package:halo_rumah_flutter/Material/MaterialPage.dart';
 import 'package:halo_rumah_flutter/UnitPrice/UnitPricePage.dart';
-import 'package:halo_rumah_flutter/Other/OtherPage.dart';
+import 'package:halo_rumah_flutter/Report/ReportPage.dart';
 import 'package:halo_rumah_flutter/Menu/SocialMedia.dart';
 import 'package:halo_rumah_flutter/Menu/AboutUs.dart';
 
@@ -64,7 +64,7 @@ class _MyAppState extends State<MyApp> {
         MaterialPageRoute(
           builder: (context) => (_loggedInUserRole == 1
               ? AdminDashboardPage(username: _loggedInUsername)
-              : UserDashboardPage(username: _loggedInUsername)),
+              : Profile(username: _loggedInUsername)),
         ),
       );
     } else {
@@ -89,15 +89,14 @@ class _MyAppState extends State<MyApp> {
           : (_isLoggedIn
               ? (_loggedInUserRole == 1
                   ? AdminDashboardPage(username: _loggedInUsername)
-                  : UserDashboardPage(username: _loggedInUsername))
+                  : Profile(username: _loggedInUsername))
               : LoginPage()),
       routes: {
         '/stepper': (context) => StepperExampleApp(),
         '/login': (context) => LoginPage(),
         '/admin_dashboard': (context) =>
             AdminDashboardPage(username: _loggedInUsername),
-        '/user_dashboard': (context) =>
-            UserDashboardPage(username: _loggedInUsername),
+        '/user_dashboard': (context) => Profile(username: _loggedInUsername),
         '/consultation': (context) =>
             ConsultationPage(username: _loggedInUsername),
         '/HouseConcept': (context) =>
@@ -110,11 +109,10 @@ class _MyAppState extends State<MyApp> {
         '/Material': (context) =>
             MaterialBangunanPage(username: _loggedInUsername),
         '/UnitPrice': (context) => UnitPrice(username: _loggedInUsername),
-        '/Other': (context) => OtherPage(username: _loggedInUsername),
+        '/Other': (context) => ReportPage(username: _loggedInUsername),
         '/SocialMedia': (context) =>
             SocialMediaPage(username: _loggedInUsername),
-        '/AboutUs': (context) =>
-            AboutUsPage(username: _loggedInUsername),
+        '/AboutUs': (context) => AboutUsPage(username: _loggedInUsername),
       },
     );
   }
@@ -141,7 +139,7 @@ class SplashScreen extends StatelessWidget {
           nextScreen: isLoggedIn
               ? (loggedInUserRole == 1
                   ? AdminDashboardPage(username: loggedInUsername)
-                  : UserDashboardPage(username: loggedInUsername))
+                  : Profile(username: loggedInUsername))
               : LoginPage(),
           splashTransition: SplashTransition.fadeTransition,
           pageTransitionType: PageTransitionType.scale,

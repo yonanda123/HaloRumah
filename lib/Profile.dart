@@ -11,15 +11,15 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:image_picker/image_picker.dart';
 import 'dart:io';
 
-class UserDashboardPage extends StatefulWidget {
+class Profile extends StatefulWidget {
   final String username;
 
-  UserDashboardPage({required this.username});
+  Profile({required this.username});
   @override
-  State<UserDashboardPage> createState() => _UserDashboardPageState();
+  State<Profile> createState() => _ProfileState();
 }
 
-class _UserDashboardPageState extends State<UserDashboardPage> {
+class _ProfileState extends State<Profile> {
   int _selectedIndex = 0;
   Map<String, dynamic> loggedInUser = {};
   void _onItemTapped(int index) {

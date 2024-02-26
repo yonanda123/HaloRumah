@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:halo_rumah_flutter/database_helper.dart';
 import 'package:intl/intl.dart';
 
-class OtherPage extends StatefulWidget {
+class ReportPage extends StatefulWidget {
   final String username;
 
-  OtherPage({required this.username});
+  ReportPage({required this.username});
   @override
-  State<OtherPage> createState() => _OtherPageState();
+  State<ReportPage> createState() => _ReportPageState();
 }
 
-class _OtherPageState extends State<OtherPage> {
+class _ReportPageState extends State<ReportPage> {
   List<Map<String, dynamic>> reportList = [];
 
   @override
